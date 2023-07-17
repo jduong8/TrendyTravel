@@ -31,26 +31,6 @@ struct CarouselHeaderView: View {
     }
 }
 
-
-struct CarouselCustomBackground: View {
-    let imageName: String
-    let isBlackBackground: Bool
-    var body: some View {
-        if isBlackBackground {
-            ZStack {
-                Color.black
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-            }
-        } else {
-            Image(imageName)
-                .resizable()
-                .scaledToFill()
-        }
-    }
-}
-
 struct CarouselHeaderView_Previews: PreviewProvider {
     static let attractionsImages: [String] = [
         .init("eiffel_tower"),

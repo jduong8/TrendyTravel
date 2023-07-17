@@ -42,26 +42,6 @@ struct TrendingCreatorsView: View {
     }
 }
 
-struct DiscoverUserView: View {
-    let user: User
-    var body: some View {
-        VStack {
-            Image(user.profilImage)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 80, height: 80)
-                .cornerRadius(.infinity)
-
-            Text(user.firstName)
-                .font(.system(size: 11, weight: .semibold))
-                .multilineTextAlignment(.center)
-                .foregroundColor(Color(.label))
-        }
-        .frame(width: 60)
-        .shadow(color: .gray, radius: 2, x: 0, y: 2)
-    }
-}
-
 struct TrendingCreatorsView_Previews: PreviewProvider {
     static var previews: some View {
         TrendingCreatorsView()
