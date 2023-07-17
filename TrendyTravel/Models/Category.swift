@@ -7,6 +7,25 @@
 
 import Foundation
 
-struct Category: Hashable {
-    let name, imageName: String
+enum Category: String, CaseIterable {
+    case culture = "Culture"
+    case spectacles = "Spectacles"
+    case sports = "Sports"
+    case restaurant = "Restaurant"
+    case bar = "Bar"
+
+    var image: String {
+        switch self {
+        case .culture:
+            return "books.vertical.fill"
+        case .spectacles:
+            return "music.mic"
+        case .sports:
+            return "sportscourt.fill"
+        case .restaurant:
+            return "fork.knife"
+        case .bar:
+            return "wineglass.fill"
+        }
+    }
 }

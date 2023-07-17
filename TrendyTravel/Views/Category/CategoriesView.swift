@@ -8,21 +8,14 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    let categories: [Category] = [
-        .init(name: "Culture", imageName: "books.vertical.fill"),
-        .init(name: "Spectacles", imageName: "music.mic"),
-        .init(name: "Sports", imageName: "sportscourt.fill"),
-        .init(name: "Restaurant", imageName: "fork.knife"),
-        .init(name: "Bar", imageName: "wineglass.fill"),
-    ]
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 14) {
-                ForEach(categories, id: \.self) { category in
+                ForEach(Category.allCases, id: \.self) { category in
                     NavigationLink {
-                        CategoryDetailView(name: category.name)
+                        CategoryDetailView(name: category.rawValue)
                     } label: {
-                        CategoriesIconsView(image: category.imageName, title: category.name)
+                        CategoriesIconsView(category: category)
                     }
                 }
             }
