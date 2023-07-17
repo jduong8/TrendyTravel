@@ -1,5 +1,5 @@
 //
-//  RestaurantDetailsViewModel.swift
+//  ActivityDetailViewModel.swift
 //  TrendyTravel
 //
 //  Created by Jonathan Duong on 17/07/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RestaurantDetailsViewModel: ObservableObject {
+class ActivityDetailViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var details: Activity?
 

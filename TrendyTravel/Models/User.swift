@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - User
 struct User: Codable, Hashable {
     var id: Int
     var firstName, lastName, description, profilImage: String

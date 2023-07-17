@@ -1,5 +1,5 @@
 //
-//  RestaurantTile.swift
+//  ActivityTile.swift
 //  TrendyTravel
 //
 //  Created by Jonathan Duong on 17/07/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RestaurantTile: View {
+struct ActivityTile: View {
     let restaurant: Restaurant
     var body: some View {
         HStack(spacing: 8) {
@@ -42,6 +42,6 @@ struct RestaurantTile: View {
 
 struct RestaurantTile_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantTile(restaurant: .init(name: "", image: ""))
+        ActivityTile(restaurant: .init(name: "", image: ""))
     }
 }

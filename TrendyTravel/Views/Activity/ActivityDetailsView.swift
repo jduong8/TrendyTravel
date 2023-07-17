@@ -1,5 +1,5 @@
 //
-//  RestaurantDetailsView.swift
+//  ActivityDetailsView.swift
 //  TrendyTravel
 //
 //  Created by Julie Collazos on 29/06/2023.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct RestaurantDetailsView: View {
-    @ObservedObject var vm = RestaurantDetailsViewModel()
+struct ActivityDetailsView: View {
+    @ObservedObject var vm = ActivityDetailViewModel()
     let restaurant: Restaurant
     var reviews: [Review]
     var body: some View{
@@ -57,7 +57,7 @@ struct RestaurantDetailsView: View {
                 .padding(.bottom)
             Divider()
                 .padding(.horizontal)
-            ReviewList(reviews: reviews)
+            ActivityReviewList(reviews: reviews)
                 .padding(.top)
         }
         .navigationBarTitle("Restaurant Details", displayMode: .inline)
@@ -67,7 +67,7 @@ struct RestaurantDetailsView: View {
 struct RestaurantDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            RestaurantDetailsView(restaurant: .init(name: "Japan's Finest Tapas", image: "tapas"), reviews: [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
+            ActivityDetailsView(restaurant: .init(name: "Japan's Finest Tapas", image: "tapas"), reviews: [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
         }
     }
 }

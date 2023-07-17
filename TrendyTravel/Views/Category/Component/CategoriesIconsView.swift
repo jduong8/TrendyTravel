@@ -1,5 +1,5 @@
 //
-//  DestinationsCategoriesImageAndLabelView.swift
+//  CategoriesIconsView.swift
 //  TrendyTravel
 //
 //  Created by Julie Collazos on 26/06/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DestinationsCategoriesImageAndLabelView: View {
+struct CategoriesIconsView: View {
     let image: String
     let title: String
     var body: some View {
@@ -27,12 +27,12 @@ struct DestinationsCategoriesImageAndLabelView: View {
     }
 }
 
-struct DestinationsCategoriesImageAndLabelView_Previews: PreviewProvider {
+struct CategoriesIconsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ZStack {
                 Color.cyan
-                DestinationsCategoriesImageAndLabelView(image: "paintpalette.fill", title: "Art")
+                CategoriesIconsView(image: "paintpalette.fill", title: "Art")
             }
         }
     }
