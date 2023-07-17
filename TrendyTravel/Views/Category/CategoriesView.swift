@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    let categories: [CategoryModel] = [
+    let categories: [Category] = [
         .init(name: "Culture", imageName: "books.vertical.fill"),
         .init(name: "Spectacles", imageName: "music.mic"),
         .init(name: "Sports", imageName: "sportscourt.fill"),

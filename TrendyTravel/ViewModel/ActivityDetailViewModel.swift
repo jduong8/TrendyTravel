@@ -9,7 +9,7 @@ import Foundation
 
 class ActivityDetailViewModel: ObservableObject {
     @Published var isLoading = true
-    @Published var details: ActivityModel?
+    @Published var details: Activity?
 
     init () {
         let urlString = "https://trendytravel.onrender.com/activities/4"
@@ -17,7 +17,7 @@ class ActivityDetailViewModel: ObservableObject {
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 guard let data = data else { return }
-                self.details = try? JSONDecoder().decode(ActivityModel.self, from: data)
+                self.details = try? JSONDecoder().decode(Activity.self, from: data)
             }
         }.resume()
     }

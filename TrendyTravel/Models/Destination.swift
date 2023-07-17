@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DestinationModel: Codable, Hashable {
+struct Destination: Codable, Hashable {
     var id: Int
     var country, city, inageName: String
     var latitude, longitude: Double

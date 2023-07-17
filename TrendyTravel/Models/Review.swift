@@ -1,5 +1,5 @@
 //
-//  ReviewModel.swift
+//  Review.swift
 //  TrendyTravel
 //
 //  Created by Jonathan Duong on 17/07/2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReviewModel: Codable, Hashable {
+struct Review: Codable, Hashable {
     var id: Int
     var content: String
     var rating, userID, activityID: Int

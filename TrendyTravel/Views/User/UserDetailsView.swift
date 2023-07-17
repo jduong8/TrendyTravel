@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserDetailsView: View {
-    let user: UserModel
+    let user: User
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
@@ -141,7 +141,7 @@ struct UserDetailsView: View {
 struct UserDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UserDetailsView(user: UserModel(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [PostModel(id: 0, title: "1st post", imageName: "eiffel_tower", hashtags: ["paradise", "lost"], userID: 0)]))
+            UserDetailsView(user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [Post(id: 0, title: "1st post", imageName: "eiffel_tower", hashtags: ["paradise", "lost"], userID: 0)]))
         }
     }
 }

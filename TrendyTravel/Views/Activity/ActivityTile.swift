@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActivityTile: View {
-    let restaurant: RestaurantModel
+    let restaurant: Restaurant
     var body: some View {
         HStack(spacing: 8) {
             Image(restaurant.image)

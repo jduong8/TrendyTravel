@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ActivityDetailsView: View {
     @ObservedObject var vm = ActivityDetailViewModel()
-    let restaurant: RestaurantModel
-    var reviews: [ReviewModel]
+    let restaurant: Restaurant
+    var reviews: [Review]
     var body: some View{
         ScrollView {
             ZStack(alignment: .bottomLeading) {
@@ -67,7 +67,7 @@ struct ActivityDetailsView: View {
 struct RestaurantDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ActivityDetailsView(restaurant: .init(name: "Japan's Finest Tapas", image: "tapas"), reviews: [ReviewModel(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
+            ActivityDetailsView(restaurant: .init(name: "Japan's Finest Tapas", image: "tapas"), reviews: [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
         }
     }
 }

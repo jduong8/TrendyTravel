@@ -7,8 +7,7 @@
 
 import Foundation
 
-// MARK: - Post
-struct PostModel: Codable, Hashable {
+struct Post: Codable, Hashable {
     var id: Int
     var title, imageName: String
     var hashtags: [String]

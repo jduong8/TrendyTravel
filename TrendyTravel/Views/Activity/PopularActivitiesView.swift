@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopularActivitiesView: View {
-    let restaurants: [RestaurantModel] = [
+    let restaurants: [Restaurant] = [
         .init(name: "Japan's Finest Tapas", image: "tapas"),
         .init(name: "Bar & Grill", image: "bar_grill")]
     var body: some View {
@@ -26,7 +26,7 @@ struct PopularActivitiesView: View {
                 HStack(spacing: 8) {
                     ForEach(restaurants, id: \.self) { restaurant in
                         NavigationLink {
-                            ActivityDetailsView(restaurant: restaurant, reviews: [ReviewModel(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
+                            ActivityDetailsView(restaurant: restaurant, reviews: [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
                         } label: {
                             ActivityTile(restaurant: restaurant)
                                 .foregroundColor(Color(.label))

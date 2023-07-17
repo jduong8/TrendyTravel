@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CategoryDetailCardView: View {
-    let activity: ActivityModel
+    let activity: Activity
     
-    var destination: DestinationModel {
+    var destination: Destination {
         for destination in  DestinationViewModel().destinations {
             if   activity.destinationId == destination.id {
                 return destination

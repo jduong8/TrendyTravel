@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActivityReviewList: View {
-    var reviews: [ReviewModel] = [ReviewModel(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)]
+    var reviews: [Review] = [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)]
     var body: some View {
         HStack {
             Text("Customer Reviews")
