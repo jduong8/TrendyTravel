@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopularDestinationTile: View {
-    let destination: Destination
+    let destination: DestinationModel
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Image(destination.inageName)

@@ -1,5 +1,5 @@
 //
-//  DestinationsCategoriesView.swift
+//  CategoriesView.swift
 //  TrendyTravel
 //
 //  Created by Julie Collazos on 26/06/2023.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct DestinationsCategoriesView: View {
-    let categories: [Category] = [
+struct CategoriesView: View {
+    let categories: [CategoryModel] = [
         .init(name: "Culture", imageName: "books.vertical.fill"),
         .init(name: "Spectacles", imageName: "music.mic"),
         .init(name: "Sports", imageName: "sportscourt.fill"),
@@ -22,7 +22,7 @@ struct DestinationsCategoriesView: View {
                     NavigationLink {
                         CategoryDetailView(name: category.name)
                     } label: {
-                        DestinationsCategoriesImageAndLabelView(image: category.imageName, title: category.name)
+                        CategoriesIconsView(image: category.imageName, title: category.name)
                     }
                 }
             }
@@ -31,12 +31,12 @@ struct DestinationsCategoriesView: View {
     }
 }
 
-struct DestinationsCategoriesView_Previews: PreviewProvider {
+struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             ZStack {
                 Color.cyan
-                DestinationsCategoriesView()
+                CategoriesView()
             }
         }
         .previewLayout(PreviewLayout.sizeThatFits)

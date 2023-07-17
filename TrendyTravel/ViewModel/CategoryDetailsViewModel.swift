@@ -9,7 +9,7 @@ import Foundation
 
 class CategoryDetailsViewModel: ObservableObject {
     @Published var isLoading = true
-    @Published var activities: [Activity] = []
+    @Published var activities: [ActivityModel] = []
     @Published var errorMessage = ""
     init() {
         let urlString = "https://trendytravel.onrender.com/activities"
@@ -30,7 +30,7 @@ class CategoryDetailsViewModel: ObservableObject {
                 
                 guard let data = data else { return }
                 do {
-                    self.activities = try JSONDecoder().decode([Activity].self, from: data)
+                    self.activities = try JSONDecoder().decode([ActivityModel].self, from: data)
                 } catch {
                     print("Failed to decode JSON: ", error)
                     self.errorMessage = error.localizedDescription

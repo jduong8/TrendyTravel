@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopularDestinationsView: View {
-    let destinations: [Destination] = [
+    let destinations: [DestinationModel] = [
         .init(id: 1, country: "France", city: "Paris", inageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235)
         ]
     var body: some View {

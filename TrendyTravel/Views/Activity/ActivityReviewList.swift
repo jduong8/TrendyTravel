@@ -1,5 +1,5 @@
 //
-//  ReviewList.swift
+//  ActivityReviewList.swift
 //  TrendyTravel
 //
 //  Created by Jonathan Duong on 17/07/2023.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ReviewList: View {
-    var reviews: [Review] = [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)]
+struct ActivityReviewList: View {
+    var reviews: [ReviewModel] = [ReviewModel(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)]
     var body: some View {
         HStack {
             Text("Customer Reviews")
@@ -49,6 +49,6 @@ struct ReviewList: View {
 }
 struct ReviewList_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewList()
+        ActivityReviewList()
     }
 }

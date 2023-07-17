@@ -7,12 +7,12 @@
 
 import Foundation
 
-// MARK: - User
-struct User: Codable, Hashable {
+// MARK: - UserModel
+struct UserModel: Codable, Hashable {
     var id: Int
     var firstName, lastName, description, profilImage: String
     var pseudo, password, email: String
-    var posts: [Post]
+    var posts: [PostModel]
 
     enum CodingKeys: String, CodingKey {
         case id

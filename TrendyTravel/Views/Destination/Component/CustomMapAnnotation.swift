@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomMapAnnotation: View {
-    let attraction: Attraction
+    let attraction: AttractionModel
     var body: some View {
         VStack {
             Image(attraction.imageName)

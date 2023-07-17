@@ -9,7 +9,7 @@ import Foundation
 
 class DestinationViewModel: ObservableObject {
     @Published var isLoading = true
-    @Published var destinations: [Destination] = [
+    @Published var destinations: [DestinationModel] = [
         .init(id: 1, country: "France", city: "Paris", inageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235)
     ]
 }

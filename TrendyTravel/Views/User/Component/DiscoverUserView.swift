@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DiscoverUserView: View {
-    let user: User
+    let user: UserModel
     var body: some View {
         VStack {
             Image(user.profilImage)

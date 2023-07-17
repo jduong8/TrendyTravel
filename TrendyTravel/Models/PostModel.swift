@@ -1,5 +1,5 @@
 //
-//  Posts.swift
+//  Post.swift
 //  TrendyTravel
 //
 //  Created by Julie Collazos on 29/06/2023.
@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Post
-struct Post: Codable, Hashable {
+struct PostModel: Codable, Hashable {
     var id: Int
     var title, imageName: String
     var hashtags: [String]

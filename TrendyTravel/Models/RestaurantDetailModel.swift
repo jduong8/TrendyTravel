@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct RestaurantDetails: Codable, Hashable {
+struct RestaurantDetailModel: Codable, Hashable {
     var id = UUID()
     let description: String
     let photos: [String]
-    let reviews: [Review]
+    let reviews: [ReviewModel]
 }

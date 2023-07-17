@@ -1,5 +1,5 @@
 //
-//  RestaurantDetailsViewModel.swift
+//  ActivityDetailViewModel.swift
 //  TrendyTravel
 //
 //  Created by Jonathan Duong on 17/07/2023.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class RestaurantDetailsViewModel: ObservableObject {
+class ActivityDetailViewModel: ObservableObject {
     @Published var isLoading = true
-    @Published var details: Activity?
+    @Published var details: ActivityModel?
 
     init () {
         let urlString = "https://trendytravel.onrender.com/activities/4"
@@ -17,7 +17,7 @@ class RestaurantDetailsViewModel: ObservableObject {
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 guard let data = data else { return }
-                self.details = try? JSONDecoder().decode(Activity.self, from: data)
+                self.details = try? JSONDecoder().decode(ActivityModel.self, from: data)
             }
         }.resume()
     }

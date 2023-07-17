@@ -1,5 +1,5 @@
 //
-//  DestinationsListView.swift
+//  DiscoverDestinationsView.swift
 //  TrendyTravel
 //
 //  Created by Julie Collazos on 26/06/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DestinationsListView: View {
+struct DiscoverDestinationsView: View {
     var body: some View {
         NavigationView {
             ZStack {
@@ -28,10 +28,10 @@ struct DestinationsListView: View {
                     .background(Color(.init(white: 1, alpha: 0.3)))
                     .cornerRadius(10)
                     .padding(16)
-                        DestinationsCategoriesView()
+                        CategoriesView()
                         VStack {
                             PopularDestinationsView()
-                            PopularRestaurantsView()
+                            PopularActivitiesView()
                             TrendingCreatorsView()
                         }
                         .background(Color.white)
@@ -48,12 +48,12 @@ struct DestinationsListView: View {
 struct DestinationsListView_Previews: PreviewProvider {
 //    @EnvironmentObject var userVm = UserViewModel()
     static var previews: some View {
-        DestinationsListView()
+        DiscoverDestinationsView()
             .colorScheme(.light)
             .environmentObject(UserViewModel())
             .environmentObject(DestinationViewModel())
             .environmentObject(CategoryDetailsViewModel())
-        DestinationsListView()
+        DiscoverDestinationsView()
             .colorScheme(.dark)
             .environmentObject(UserViewModel())
             .environmentObject(DestinationViewModel())

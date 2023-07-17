@@ -1,5 +1,5 @@
 //
-//  PopularRestaurantsView.swift
+//  PopularActivitiesView.swift
 //  TrendyTravel
 //
 //  Created by Julie Collazos on 26/06/2023.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct PopularRestaurantsView: View {
-    let restaurants: [Restaurant] = [
+struct PopularActivitiesView: View {
+    let restaurants: [RestaurantModel] = [
         .init(name: "Japan's Finest Tapas", image: "tapas"),
         .init(name: "Bar & Grill", image: "bar_grill")]
     var body: some View {
@@ -26,9 +26,9 @@ struct PopularRestaurantsView: View {
                 HStack(spacing: 8) {
                     ForEach(restaurants, id: \.self) { restaurant in
                         NavigationLink {
-                            RestaurantDetailsView(restaurant: restaurant, reviews: [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
+                            ActivityDetailsView(restaurant: restaurant, reviews: [ReviewModel(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
                         } label: {
-                            RestaurantTile(restaurant: restaurant)
+                            ActivityTile(restaurant: restaurant)
                                 .foregroundColor(Color(.label))
                         }
                         .frame(width: 240)
@@ -43,6 +43,6 @@ struct PopularRestaurantsView: View {
 
 struct PopularRestaurantsView_Previews: PreviewProvider {
     static var previews: some View {
-        PopularRestaurantsView()
+        PopularActivitiesView()
     }
 }
