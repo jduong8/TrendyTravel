@@ -8,11 +8,11 @@
 import Foundation
 
 enum Category: String, CaseIterable {
-    case culture = "Culture"
-    case spectacles = "Spectacles"
-    case sports = "Sports"
-    case restaurant = "Restaurant"
-    case bar = "Bar"
+    case culture
+    case spectacles
+    case sports
+    case restaurant
+    case bar
 
     var image: String {
         switch self {
