@@ -9,17 +9,17 @@ import SwiftUI
 
 struct CategoriesView: View {
 
-    @StateObject var vm = CategoryDetailsViewModel()
+    @StateObject var activityVM = ActivityViewModel()
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 14) {
                 ForEach(Category.allCases, id: \.self) { category in
                     NavigationLink {
-                        CategoryDetailView(vm: vm)
+                        ActivitiesListView(activityVM: activityVM)
                             .onAppear {
                                 Task {
-                                    await self.vm.getActivities(from: category)
+                                    await self.activityVM.getActivities(from: category)
                                 }
                             }
                     } label: {

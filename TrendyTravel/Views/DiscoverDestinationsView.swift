@@ -59,11 +59,11 @@ struct DestinationsListView_Previews: PreviewProvider {
             .colorScheme(.light)
             .environmentObject(UserViewModel())
             .environmentObject(DestinationViewModel())
-            .environmentObject(CategoryDetailsViewModel())
+            .environmentObject(ActivityViewModel())
         DiscoverDestinationsView()
             .colorScheme(.dark)
             .environmentObject(UserViewModel())
             .environmentObject(DestinationViewModel())
-            .environmentObject(CategoryDetailsViewModel())
+            .environmentObject(ActivityViewModel())
     }
 }
