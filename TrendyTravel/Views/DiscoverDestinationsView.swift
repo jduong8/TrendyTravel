@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DiscoverDestinationsView: View {
+
     @StateObject var destinationViewModel = DestinationViewModel()
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -29,7 +31,7 @@ struct DiscoverDestinationsView: View {
                     .background(Color(.init(white: 1, alpha: 0.3)))
                     .cornerRadius(10)
                     .padding(16)
-                    CategoriesView(destinationVM: destinationViewModel)
+                    CategoriesView()
                         VStack {
                             PopularDestinationsView(viewModel: destinationViewModel)
                                 .onAppear {
@@ -57,11 +59,11 @@ struct DestinationsListView_Previews: PreviewProvider {
             .colorScheme(.light)
             .environmentObject(UserViewModel())
             .environmentObject(DestinationViewModel())
-            .environmentObject(CategoryDetailsViewModel())
+            .environmentObject(ActivityViewModel())
         DiscoverDestinationsView()
             .colorScheme(.dark)
             .environmentObject(UserViewModel())
             .environmentObject(DestinationViewModel())
-            .environmentObject(CategoryDetailsViewModel())
+            .environmentObject(ActivityViewModel())
     }
 }

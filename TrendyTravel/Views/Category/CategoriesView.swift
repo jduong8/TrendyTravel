@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    @ObservedObject var destinationVM: DestinationViewModel
+
+    @StateObject var activityVM = ActivityViewModel()
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 14) {
                 ForEach(Category.allCases, id: \.self) { category in
                     NavigationLink {
-                        CategoryDetailView(name: category.rawValue, destinationVM: destinationVM)
+                        ActivitiesListView(activityVM: activityVM)
+                            .onAppear {
+                                Task {
+                                    await self.activityVM.getActivities(from: category)
+                                }
+                            }
                     } label: {
                         CategoriesIconsView(category: category)
                     }
@@ -30,7 +37,7 @@ struct CategoriesView_Previews: PreviewProvider {
         NavigationView {
             ZStack {
                 Color.cyan
-                CategoriesView(destinationVM: DestinationViewModel())
+                CategoriesView()
             }
         }
         .previewLayout(PreviewLayout.sizeThatFits)

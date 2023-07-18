@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum Category: String, CaseIterable {
+enum Category: String, CaseIterable, Codable {
     case culture
-    case spectacles
-    case sports
+    case spectacle
+    case sport
     case restaurant
     case bar
 
@@ -18,9 +18,9 @@ enum Category: String, CaseIterable {
         switch self {
         case .culture:
             return "books.vertical.fill"
-        case .spectacles:
+        case .spectacle:
             return "music.mic"
-        case .sports:
+        case .sport:
             return "sportscourt.fill"
         case .restaurant:
             return "fork.knife"
