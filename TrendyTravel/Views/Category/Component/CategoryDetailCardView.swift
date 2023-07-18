@@ -10,24 +10,11 @@ import SwiftUI
 struct CategoryDetailCardView: View {
     
     let activity: Activity
-    
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            if let url = URL(string: activity.imageName) {
-                AsyncImage(url: url) { state in
-                    switch state {
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    default:
-                        ProgressView()
-                    }
-                }
-                Text(activity.name)
-                    .font(.system(size: 12, weight: .semibold))
-                    .padding()
-            }
+        VStack(spacing: 0) {
+            CategoryCardHeaderView(activity: activity)
+            CategoryCardFooterView(activity: activity)
         }
         .padding()
     }
@@ -47,7 +34,15 @@ struct CategoryDetailCardView_Previews: PreviewProvider {
                     longitude: 0.0,
                     description: "",
                     rating: 0,
-                    destinationId: 0
+                    destinationId: 0,
+                    destination: .init(
+                        id: 0,
+                        country: "",
+                        city: "",
+                        imageName: "",
+                        latitude: 0.0,
+                        longitude: 0.0
+                    )
                 )
         )
     }

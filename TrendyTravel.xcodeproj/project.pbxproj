@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1082DBE32A667D4E006870CE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1082DBE22A667D4E006870CE /* NetworkManager */; };
+		13ED18D52A669C0B0005CFCE /* CategoryCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */; };
+		13ED18D82A669C980005CFCE /* RoundedCornder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D72A669C980005CFCE /* RoundedCornder.swift */; };
+		13ED18DA2A669D2D0005CFCE /* CategoryCardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */; };
 		13F378922A65434700EE2A0A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378912A65434700EE2A0A /* Category.swift */; };
 		13F378942A65435E00EE2A0A /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378932A65435E00EE2A0A /* Restaurant.swift */; };
 		13F378962A65437500EE2A0A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378952A65437500EE2A0A /* Activity.swift */; };
@@ -68,6 +71,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardHeaderView.swift; sourceTree = "<group>"; };
+		13ED18D72A669C980005CFCE /* RoundedCornder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornder.swift; sourceTree = "<group>"; };
+		13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardFooterView.swift; sourceTree = "<group>"; };
 		13F378912A65434700EE2A0A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		13F378932A65435E00EE2A0A /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		13F378952A65437500EE2A0A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -139,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13ED18D62A669C850005CFCE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				13ED18D72A669C980005CFCE /* RoundedCornder.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		13F378972A65439F00EE2A0A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +213,8 @@
 				13F3789A2A6543F500EE2A0A /* CategoryDetailLoadingView.swift */,
 				13F3789E2A65445700EE2A0A /* CategoryDetailCardView.swift */,
 				7539DE552A4996F40015FA4F /* CategoriesIconsView.swift */,
+				13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */,
+				13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -304,6 +320,7 @@
 				13F378BE2A6561B600EE2A0A /* Category */,
 				13F378BF2A65629600EE2A0A /* Activity */,
 				13F378C02A6563F300EE2A0A /* User */,
+				13ED18D62A669C850005CFCE /* Shared */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,6 +470,7 @@
 				7539DE562A4996F40015FA4F /* CategoriesIconsView.swift in Sources */,
 				758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */,
 				7539DE542A4995EA0015FA4F /* CategoriesView.swift in Sources */,
+				13ED18D82A669C980005CFCE /* RoundedCornder.swift in Sources */,
 				13F378942A65435E00EE2A0A /* Restaurant.swift in Sources */,
 				13F378A52A65458100EE2A0A /* PopularDestinationsDetailsView.swift in Sources */,
 				7539DE7F2A49B7EB0015FA4F /* TrendingCreatorsView.swift in Sources */,
@@ -461,9 +479,11 @@
 				7539DE812A49B84A0015FA4F /* User.swift in Sources */,
 				7539DE5D2A4999A50015FA4F /* PopularDestinationsView.swift in Sources */,
 				13F378A12A65452000EE2A0A /* PopularDestinationTile.swift in Sources */,
+				13ED18DA2A669D2D0005CFCE /* CategoryCardFooterView.swift in Sources */,
 				13F378992A6543BA00EE2A0A /* CategoryDetailsViewModel.swift in Sources */,
 				13F3789F2A65445700EE2A0A /* CategoryDetailCardView.swift in Sources */,
 				13F378B72A65473C00EE2A0A /* DiscoverUserView.swift in Sources */,
+				13ED18D52A669C0B0005CFCE /* CategoryCardHeaderView.swift in Sources */,
 				7539DE7B2A49B4DC0015FA4F /* PopularActivitiesView.swift in Sources */,
 				7539DE502A49948D0015FA4F /* DiscoverDestinationsView.swift in Sources */,
 				13F3789B2A6543F500EE2A0A /* CategoryDetailLoadingView.swift in Sources */,
