@@ -10,7 +10,6 @@ import SwiftUI
 struct CategoryDetailView: View {
 
     @ObservedObject var vm: CategoryDetailsViewModel
-    @ObservedObject var destinationVM: DestinationViewModel
 
     var body: some View {
         Group {
@@ -23,7 +22,7 @@ struct CategoryDetailView: View {
                     }
                     ScrollView {
                         ForEach(vm.activities, id: \.self) { activity in
-                            CategoryDetailCardView(vm: destinationVM, activity: activity)
+                            CategoryDetailCardView(activity: activity)
                         }
                     }
                 }
@@ -36,7 +35,7 @@ struct CategoryDetailView: View {
 struct CategoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CategoryDetailView(vm: CategoryDetailsViewModel(), destinationVM: DestinationViewModel())
+            CategoryDetailView(vm: CategoryDetailsViewModel())
         }
     }
 }

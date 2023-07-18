@@ -74,6 +74,7 @@
 		13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardHeaderView.swift; sourceTree = "<group>"; };
 		13ED18D72A669C980005CFCE /* RoundedCornder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornder.swift; sourceTree = "<group>"; };
 		13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardFooterView.swift; sourceTree = "<group>"; };
+		13ED18DB2A66B0F60005CFCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		13F378912A65434700EE2A0A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		13F378932A65435E00EE2A0A /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		13F378952A65437500EE2A0A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -261,6 +262,7 @@
 		7539DE242A4994650015FA4F /* TrendyTravel */ = {
 			isa = PBXGroup;
 			children = (
+				13ED18DB2A66B0F60005CFCE /* Info.plist */,
 				13F378972A65439F00EE2A0A /* ViewModel */,
 				7539DE592A49980D0015FA4F /* Models */,
 				7539DE5A2A49993A0015FA4F /* Views */,
@@ -660,6 +662,7 @@
 				DEVELOPMENT_TEAM = FLBCXB8HYK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrendyTravel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -689,6 +692,7 @@
 				DEVELOPMENT_TEAM = FLBCXB8HYK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrendyTravel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

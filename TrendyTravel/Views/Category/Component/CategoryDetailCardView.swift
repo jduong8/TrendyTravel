@@ -22,28 +22,6 @@ struct CategoryDetailCardView: View {
 
 struct CategoryDetailCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailCardView(activity:
-                .init(
-                    id: 0,
-                    category: "",
-                    name: "",
-                    imageName: "",
-                    link: "",
-                    price: "",
-                    latitude: 0.0,
-                    longitude: 0.0,
-                    description: "",
-                    rating: 0,
-                    destinationId: 0,
-                    destination: .init(
-                        id: 0,
-                        country: "",
-                        city: "",
-                        imageName: "",
-                        latitude: 0.0,
-                        longitude: 0.0
-                    )
-                )
-        )
+        CategoryDetailCardView(activity: .initial)
     }
 }

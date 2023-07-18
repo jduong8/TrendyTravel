@@ -29,29 +29,7 @@ struct CategoryCardFooterView: View {
 
 struct CategoryCardFooterView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryCardFooterView(activity:
-                .init(
-                    id: 0,
-                    category: "",
-                    name: "",
-                    imageName: "",
-                    link: "",
-                    price: "",
-                    latitude: 0.0,
-                    longitude: 0.0,
-                    description: "",
-                    rating: 0,
-                    destinationId: 0,
-                    destination: .init(
-                        id: 0,
-                        country: "",
-                        city: "",
-                        imageName: "",
-                        latitude: 0.0,
-                        longitude: 0.0
-                    )
-                )
-        )
+        CategoryCardFooterView(activity: .initial)
     }
 }
 
@@ -78,15 +56,15 @@ extension CategoryCardFooterView {
             }
             .padding(.leading, 8)
             Spacer()
-            Capsule()
-                .fill(.cyan)
-                .opacity(0.2)
-                .overlay {
-                    Text(activity.category.capitalized)
-                        .foregroundColor(.cyan)
-                        .bold()
-                }
-                .frame(width: 100, height: 20)
+            Text(activity.category.capitalized)
+                .foregroundColor(.cyan)
+                .bold()
+                .padding(.horizontal)
+                .background(
+                    Capsule()
+                        .fill(.cyan)
+                        .opacity(0.2)
+                )
                 .padding(.trailing)
         }
     }

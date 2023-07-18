@@ -21,4 +21,6 @@ struct Activity: Codable, Hashable {
         case id, category, name, imageName, link, price, latitude, longitude, description, rating, destinationId
         case destination = "Destination"
     }
+    
+    static let initial = Activity(id: 0, category: "Culture", name: "Effet tower", imageName: "", link: "", price: "", latitude: 0.0, longitude: 0.0, description: "", rating: 0, destinationId: 0, destination: .initial)
 }

@@ -18,7 +18,6 @@ struct CategoryCardHeaderView: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .scaledToFill()
                         .frame(height: 150)
                 default:
                     ProgressView()
@@ -39,28 +38,6 @@ struct CategoryCardHeaderView: View {
 
 struct CategoryCardHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryCardHeaderView(activity:
-                .init(
-                    id: 0,
-                    category: "",
-                    name: "",
-                    imageName: "",
-                    link: "",
-                    price: "",
-                    latitude: 0.0,
-                    longitude: 0.0,
-                    description: "",
-                    rating: 0,
-                    destinationId: 0,
-                    destination: .init(
-                        id: 0,
-                        country: "",
-                        city: "",
-                        imageName: "",
-                        latitude: 0.0,
-                        longitude: 0.0
-                    )
-                )
-        )
+        CategoryCardHeaderView(activity: .initial)
     }
 }
