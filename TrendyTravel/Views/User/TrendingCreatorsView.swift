@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrendingCreatorsView: View {
-    @ObservedObject var vm: UserViewModel
+    @EnvironmentObject var vm : UserViewModel
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -48,6 +48,9 @@ struct TrendingCreatorsView: View {
 
 struct TrendingCreatorsView_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingCreatorsView(vm: UserViewModel())
+        NavigationView {
+            TrendingCreatorsView()
+                .environmentObject(UserViewModel())
+        }
     }
 }
