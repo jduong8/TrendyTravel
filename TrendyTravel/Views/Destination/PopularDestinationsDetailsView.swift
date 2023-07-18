@@ -22,11 +22,13 @@ struct PopularDestinationsDetailsView: View {
     
     func activityImages(destination: Destination) -> [String] {
         var images: [String] = []
-        for activity in attractions {
+        for activity in destination.activities {
             images.append(activity.imageName)
         }
         return images
     }
+
+
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -61,20 +63,15 @@ struct PopularDestinationsDetailsView: View {
                     .labelsHidden()
             }
             .padding()
-            Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? attractions : []) { attraction in
-                MapAnnotation(coordinate: .init(latitude: attraction.latitude, longitude: attraction.longitude)) {
-                    CustomMapAnnotation(attraction: attraction)
+            Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? destination.activities : []) { activity in
+                MapAnnotation(coordinate: .init(latitude: activity.latitude, longitude: activity.longitude)) {
+                    CustomMapAnnotation(activity: activity)
                 }
             }
             .frame(height: 300)
         }
         .navigationBarTitle(destination.city, displayMode: .inline)
     }
-    let attractions: [Attraction] = [
-        .init(name: "eiffel tower", imageName: "eiffel_tower", latitude: 48.858605, longitude: 2.2946),
-        .init(name: "Champs-Elysees", imageName: "new_york", latitude: 48.866867, longitude: 2.311780),
-        .init(name: "Louvre Museum", imageName: "art2", latitude: 48.860288, longitude: 2.337789)
-    ]
 }
 
 struct PopularDestinationsDetailsView_Previews: PreviewProvider {

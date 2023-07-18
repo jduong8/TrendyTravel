@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Activity: Codable, Hashable {
+struct Activity: Codable, Hashable, Identifiable {
     var id: Int
     var category, name, imageName: String
     var link: String
