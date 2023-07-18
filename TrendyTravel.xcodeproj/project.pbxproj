@@ -46,6 +46,7 @@
 		7539DE832A49BF4F0015FA4F /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539DE822A49BF4F0015FA4F /* UserDetailsView.swift */; };
 		758A0E802A4D64EB008E22FC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E7F2A4D64EB008E22FC /* Post.swift */; };
 		758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */; };
+		DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB10EB02A65BE80003D1AAD /* UsersListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		7539DE822A49BF4F0015FA4F /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		758A0E7F2A4D64EB008E22FC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
+		DCB10EB02A65BE80003D1AAD /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 		13F378C02A6563F300EE2A0A /* User */ = {
 			isa = PBXGroup;
 			children = (
+				DCB10EB02A65BE80003D1AAD /* UsersListView.swift */,
 				7539DE7E2A49B7EB0015FA4F /* TrendingCreatorsView.swift */,
 				7539DE822A49BF4F0015FA4F /* UserDetailsView.swift */,
 				13F378C32A65655200EE2A0A /* Component */,
@@ -460,6 +463,7 @@
 				13F378922A65434700EE2A0A /* Category.swift in Sources */,
 				13F378AB2A65462500EE2A0A /* ActivityTile.swift in Sources */,
 				13F378B52A65470A00EE2A0A /* ActivityReviewList.swift in Sources */,
+				DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */,
 				13F378AF2A6546B900EE2A0A /* Review.swift in Sources */,
 				7539DE522A4995CB0015FA4F /* Destination.swift in Sources */,
 				7539DE582A4997BD0015FA4F /* CategoryDetailView.swift in Sources */,
