@@ -12,6 +12,7 @@ struct User: Codable, Hashable {
     var firstName, lastName, description, profilImage: String
     var pseudo, password, email: String
     var posts: [Post]
+    var follower: [Follower]
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -19,6 +20,7 @@ struct User: Codable, Hashable {
         case lastName = "last_name"
         case description, profilImage, pseudo, password, email
         case posts = "Posts"
+        case follower = "Followers"
 
     }
 }

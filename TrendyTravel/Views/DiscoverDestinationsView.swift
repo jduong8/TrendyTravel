@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiscoverDestinationsView: View {
     @StateObject var destinationViewModel = DestinationViewModel()
+    @State var destination : String = ""
     var body: some View {
         NavigationView {
             ZStack {
@@ -18,17 +19,13 @@ struct DiscoverDestinationsView: View {
                 Color.white
                     .offset(y: 400)
                 ScrollView(showsIndicators: false) {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                        Text("Where do you want to go?")
-                        Spacer()
-                    }
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color(.init(white: 1, alpha: 0.3)))
-                    .cornerRadius(10)
-                    .padding(16)
+                    TextField("Where do you want to go?", text: $destination)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color(.init(white: 1, alpha: 0.3)))
+                        .cornerRadius(10)
+                        .padding(16)
                     CategoriesView(destinationVM: destinationViewModel)
                         VStack {
                             PopularDestinationsView(viewModel: destinationViewModel)
