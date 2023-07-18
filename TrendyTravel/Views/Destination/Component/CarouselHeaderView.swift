@@ -12,15 +12,14 @@ struct CarouselHeaderView: View {
     var images: [String]
     var body: some View {
         VStack {
-            TabView(selection: $index) {
-                ForEach(images, id: \.self) { index in
-                    CarouselCustomBackground(imageName: index, isBlackBackground: false)
+            TabView(selection: $index)  {
+                ForEach(Array(zip(images.indices, images)), id: \.0) { index, image in
+                    CarouselCustomBackground(imageName: image).tag(index)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            
             HStack(spacing: 2) {
-                ForEach((0..<3), id: \.self) { index in
+                ForEach((0..<images.count), id: \.self) { index in
                     Rectangle()
                         .fill(index == self.index ? Color.cyan : Color.cyan.opacity(0.5))
                         .frame(width: 30, height: 5)
