@@ -79,6 +79,6 @@ struct PopularDestinationsDetailsView: View {
 
 struct PopularDestinationsDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PopularDestinationsDetailsView(destination: .init(id: 0, country: "", city: "", inageName: "", latitude: 0.0, longitude: 0.0))
+        PopularDestinationsDetailsView(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0))
     }
 }

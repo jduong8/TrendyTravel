@@ -11,7 +11,7 @@ struct PopularDestinationTile: View {
     let destination: Destination
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Image(destination.inageName)
+            Image(destination.imageName)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 125, height: 125)
@@ -32,6 +32,6 @@ struct PopularDestinationTile: View {
 
 struct PopularDestinationTile_Previews: PreviewProvider {
     static var previews: some View {
-        PopularDestinationTile(destination: .init(id: 0, country: "", city: "", inageName: "", latitude: 0.0, longitude: 0.0))
+        PopularDestinationTile(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0))
     }
 }

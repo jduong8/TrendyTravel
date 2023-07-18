@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryDetailView: View {
     let name: String
     @EnvironmentObject var vm: CategoryDetailsViewModel
+    @ObservedObject var destinationVM: DestinationViewModel
     
     var body: some View {
         if vm.isLoading {
@@ -21,7 +22,7 @@ struct CategoryDetailView: View {
                 }
                 ScrollView {
                     ForEach(vm.activities, id: \.self) { activity in
-                        CategoryDetailCardView(activity: activity)
+                        CategoryDetailCardView(vm: destinationVM, activity: activity)
                             .navigationBarTitle(activity.category.capitalized, displayMode: .inline)
                     }
                 }
@@ -34,7 +35,7 @@ struct CategoryDetailView: View {
 struct CategoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CategoryDetailView(name: "culture")
+            CategoryDetailView(name: "culture", destinationVM: DestinationViewModel())
                 .environmentObject(CategoryDetailsViewModel())
         }
     }
