@@ -29,6 +29,6 @@ struct DiscoverUserView: View {
 
 struct DiscoverUserView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverUserView(user: .init(id: 0, firstName: "", lastName: "", description: "", profilImage: "", pseudo: "", password: "", email: "", posts: []))
+        DiscoverUserView(user: .init(id: 0, firstName: "", lastName: "", description: "", profilImage: "", pseudo: "", password: "", email: "", posts: [], follower: []))
     }
 }
