@@ -24,7 +24,9 @@ struct TrendingCreatorsView: View {
             }
             .padding(.top)
             .onAppear {
-                vm.users = vm.getUsers()
+                Task {
+                    vm.users = try await vm.getUsers()
+                }
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -35,7 +37,6 @@ struct TrendingCreatorsView: View {
                         } label: {
                             DiscoverUserView(user: user)
                         }
-                        
                     }
                 }
                 .padding(.horizontal)

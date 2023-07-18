@@ -47,6 +47,7 @@
 		7539DE832A49BF4F0015FA4F /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539DE822A49BF4F0015FA4F /* UserDetailsView.swift */; };
 		758A0E802A4D64EB008E22FC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E7F2A4D64EB008E22FC /* Post.swift */; };
 		758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */; };
+		DC0549052A66A51700AFFE3C /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0549042A66A51700AFFE3C /* Follower.swift */; };
 		DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB10EB02A65BE80003D1AAD /* UsersListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		7539DE822A49BF4F0015FA4F /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		758A0E7F2A4D64EB008E22FC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
+		DC0549042A66A51700AFFE3C /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		DCB10EB02A65BE80003D1AAD /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -292,6 +294,7 @@
 				13F378952A65437500EE2A0A /* Activity.swift */,
 				13F378AC2A65469400EE2A0A /* RestaurantDetail.swift */,
 				13F378A62A6545BB00EE2A0A /* Attraction.swift */,
+				DC0549042A66A51700AFFE3C /* Follower.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			files = (
 				13F378B32A6546E700EE2A0A /* ActivityDetailViewModel.swift in Sources */,
 				13F378A32A65455500EE2A0A /* DestinationViewModel.swift in Sources */,
+				DC0549052A66A51700AFFE3C /* Follower.swift in Sources */,
 				13F378962A65437500EE2A0A /* Activity.swift in Sources */,
 				13F378A72A6545BB00EE2A0A /* Attraction.swift in Sources */,
 				7539DE5F2A499BE60015FA4F /* CarouselHeaderView.swift in Sources */,

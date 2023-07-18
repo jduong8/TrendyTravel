@@ -21,9 +21,11 @@ struct UsersListView: View {
                     }
                     
                 }
-            }
-            .onAppear {
-                vm.users = vm.getUsers()
+                .onAppear {
+                    Task {
+                        vm.users = try await vm.getUsers()
+                    }
+                }
             }
             .padding(.horizontal)
             .padding(.bottom)
