@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1082DBE32A667D4E006870CE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1082DBE22A667D4E006870CE /* NetworkManager */; };
 		13F378922A65434700EE2A0A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378912A65434700EE2A0A /* Category.swift */; };
 		13F378942A65435E00EE2A0A /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378932A65435E00EE2A0A /* Restaurant.swift */; };
 		13F378962A65437500EE2A0A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378952A65437500EE2A0A /* Activity.swift */; };
@@ -115,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1082DBE32A667D4E006870CE /* NetworkManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +321,9 @@
 			dependencies = (
 			);
 			name = TrendyTravel;
+			packageProductDependencies = (
+				1082DBE22A667D4E006870CE /* NetworkManager */,
+			);
 			productName = TrendyTravel;
 			productReference = 7539DE222A4994650015FA4F /* TrendyTravel.app */;
 			productType = "com.apple.product-type.application";
@@ -391,6 +396,9 @@
 				Base,
 			);
 			mainGroup = 7539DE192A4994650015FA4F;
+			packageReferences = (
+				1082DBE12A667D4E006870CE /* XCRemoteSwiftPackageReference "NetworkManager" */,
+			);
 			productRefGroup = 7539DE232A4994650015FA4F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -787,6 +795,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1082DBE12A667D4E006870CE /* XCRemoteSwiftPackageReference "NetworkManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nydina/NetworkManager";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1082DBE22A667D4E006870CE /* NetworkManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1082DBE12A667D4E006870CE /* XCRemoteSwiftPackageReference "NetworkManager" */;
+			productName = NetworkManager;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7539DE1A2A4994650015FA4F /* Project object */;
 }
