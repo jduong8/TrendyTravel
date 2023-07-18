@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct CategoriesView: View {
+    @ObservedObject var destinationVM: DestinationViewModel
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 14) {
                 ForEach(Category.allCases, id: \.self) { category in
                     NavigationLink {
-                        CategoryDetailView(name: category.rawValue)
+                        CategoryDetailView(name: category.rawValue, destinationVM: destinationVM)
                     } label: {
                         CategoriesIconsView(category: category)
                     }
@@ -29,7 +30,7 @@ struct CategoriesView_Previews: PreviewProvider {
         NavigationView {
             ZStack {
                 Color.cyan
-                CategoriesView()
+                CategoriesView(destinationVM: DestinationViewModel())
             }
         }
         .previewLayout(PreviewLayout.sizeThatFits)

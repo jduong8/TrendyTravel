@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct PopularDestinationsView: View {
-    let destinations: [Destination] = [
-        .init(id: 1, country: "France", city: "Paris", inageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235)
-        ]
+    @ObservedObject var viewModel: DestinationViewModel
     var body: some View {
         VStack {
             HStack {
@@ -25,7 +23,7 @@ struct PopularDestinationsView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(destinations, id: \.self) { destination in
+                    ForEach(viewModel.destinations, id: \.self) { destination in
                         NavigationLink {
                                                         PopularDestinationsDetailsView(destination: destination)
                         } label: {
@@ -43,7 +41,7 @@ struct PopularDestinationsView: View {
 struct PopularDestinationsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PopularDestinationsDetailsView(destination: .init(id: 1, country: "France", city: "Paris", inageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235))
+            PopularDestinationsDetailsView(destination: .init(id: 1, country: "France", city: "Paris", imageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235))
         }
     }
 }

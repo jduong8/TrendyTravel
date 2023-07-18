@@ -9,6 +9,6 @@ import Foundation
 
 struct Destination: Codable, Hashable {
     var id: Int
-    var country, city, inageName: String
+    var country, city, imageName: String
     var latitude, longitude: Double
 }

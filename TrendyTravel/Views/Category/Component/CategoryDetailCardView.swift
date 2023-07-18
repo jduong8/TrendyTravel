@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct CategoryDetailCardView: View {
+    @ObservedObject var vm: DestinationViewModel
     let activity: Activity
     
     var destination: Destination {
-        for destination in  DestinationViewModel().destinations {
+        for destination in  vm.destinations {
             if   activity.destinationId == destination.id {
                 return destination
             }
@@ -35,7 +36,7 @@ struct CategoryDetailCardView: View {
 
 struct CategoryDetailCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailCardView(activity:
+        CategoryDetailCardView(vm: DestinationViewModel(), activity:
                 .init(
                     id: 0,
                     category: "",
