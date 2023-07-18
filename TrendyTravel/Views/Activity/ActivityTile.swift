@@ -11,14 +11,18 @@ struct ActivityTile: View {
     let activity: Activity
     var body: some View {
         HStack(spacing: 8) {
-            AsyncImage(url: URL(string: activity.imageName))
-//                .resizable()
-                .scaledToFill()
-                .frame(width: 60, height: 60)
-                .clipped()
-                .cornerRadius(5)
-//                .padding(.leading, 6)
-//                .padding(.vertical, 6)
+            AsyncImage(
+                url: URL(string: activity.imageName),
+                content: { image in
+                    image.resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(10)
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
             VStack(alignment: .leading, spacing: 6) {
                 HStack {
                     Text(activity.name)
@@ -30,9 +34,9 @@ struct ActivityTile: View {
                 }
                 HStack {
                     Image(systemName: "star.fill")
-                    Text("4.7")
+                    Text("\(activity.rating)")
                 }
-                Text("Tokyo, Japan")
+                Text("\(activity.destination.city), \(activity.destination.country)")
             }
             .font(.system(size: 12, weight: .semibold))
             Spacer()
