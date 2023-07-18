@@ -34,7 +34,7 @@ struct DiscoverDestinationsView: View {
                             PopularDestinationsView(viewModel: destinationViewModel)
                                 .onAppear {
                                     destinationViewModel
-                                        .getDestinations()
+                                        .getPopularDestinations()
                                 }
                             PopularActivitiesView()
                             TrendingCreatorsView()

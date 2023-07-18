@@ -32,6 +32,6 @@ struct PopularDestinationTile: View {
 
 struct PopularDestinationTile_Previews: PreviewProvider {
     static var previews: some View {
-        PopularDestinationTile(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0))
+        PopularDestinationTile(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0, activities: []))
     }
 }

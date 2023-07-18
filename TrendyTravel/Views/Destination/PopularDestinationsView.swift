@@ -15,8 +15,12 @@ struct PopularDestinationsView: View {
                 Text("Popular Destinations")
                     .font(.system(size: 14, weight: .semibold))
                 Spacer()
-                Text("See all")
-                    .font(.system(size: 12, weight: .semibold))
+                NavigationLink {
+                    AllDestinationsView(viewModel: viewModel)
+                } label: {
+                    Text("See all")
+                        .font(.system(size: 12, weight: .semibold))
+                }
             }
             .padding(.horizontal)
             .padding(.top)
@@ -25,7 +29,7 @@ struct PopularDestinationsView: View {
                 HStack(spacing: 8) {
                     ForEach(viewModel.destinations, id: \.self) { destination in
                         NavigationLink {
-                                                        PopularDestinationsDetailsView(destination: destination)
+                            PopularDestinationsDetailsView(destination: destination)
                         } label: {
                             PopularDestinationTile(destination: destination)
                                 .padding(.bottom)
@@ -41,7 +45,7 @@ struct PopularDestinationsView: View {
 struct PopularDestinationsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PopularDestinationsDetailsView(destination: .init(id: 1, country: "France", city: "Paris", imageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235))
+            PopularDestinationsDetailsView(destination: .init(id: 1, country: "France", city: "Paris", imageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235, activities: []))
         }
     }
 }
