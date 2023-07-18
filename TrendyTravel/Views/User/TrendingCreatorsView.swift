@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct TrendingCreatorsView: View {
-    @EnvironmentObject var vm: UserViewModel
+    @ObservedObject var vm: UserViewModel
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Trending Creators")
                     .font(.system(size: 14, weight: .semibold))
                 Spacer()
-                Text("See all")
-                    .font(.system(size: 12, weight: .semibold))
+                NavigationLink {
+                    UsersListView(vm: vm)
+                } label: {
+                    Text("See all")
+                        .font(.system(size: 12, weight: .semibold))
+                }
             }
             .padding(.top)
             .onAppear {
@@ -44,7 +48,6 @@ struct TrendingCreatorsView: View {
 
 struct TrendingCreatorsView_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingCreatorsView()
-            .environmentObject(UserViewModel())
+        TrendingCreatorsView(vm: UserViewModel())
     }
 }
