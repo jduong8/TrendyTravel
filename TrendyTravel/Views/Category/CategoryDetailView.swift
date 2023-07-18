@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryDetailView: View {
-    let name: String
+
     @EnvironmentObject var vm: CategoryDetailsViewModel
     @ObservedObject var destinationVM: DestinationViewModel
     
