@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UsersListView: View {
-    @ObservedObject var vm: UserViewModel
+    @ObservedObject var vm : UserViewModel
     let column = [GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
         ScrollView {
