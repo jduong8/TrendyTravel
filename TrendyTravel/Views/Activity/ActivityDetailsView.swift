@@ -65,7 +65,7 @@ struct ActivityDetailsView: View {
 struct RestaurantDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ActivityDetailsView(activity: Activity(id: 1, category: "", name: "", imageName: "", link: "", price: "", latitude: 0.0, longitude: 0.0, description: "", rating: 1, destinationId: 1))
+            ActivityDetailsView(activity: .initial)
         }
     }
 }

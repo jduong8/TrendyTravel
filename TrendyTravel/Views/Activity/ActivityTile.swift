@@ -42,6 +42,6 @@ struct ActivityTile: View {
 
 struct RestaurantTile_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityTile(activity: Activity(id: 0, category: "", name: "", imageName: "", link: "", price: "", latitude: 0.0, longitude: 0.0, description: "", rating: 4, destinationId: 3))
+        ActivityTile(activity: .initial)
     }
 }
