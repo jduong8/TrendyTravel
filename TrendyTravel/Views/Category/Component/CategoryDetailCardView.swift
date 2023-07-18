@@ -8,35 +8,34 @@
 import SwiftUI
 
 struct CategoryDetailCardView: View {
-    @ObservedObject var vm: DestinationViewModel
-    let activity: Activity
     
-    var destination: Destination {
-        for destination in  vm.destinations {
-            if   activity.destinationId == destination.id {
-                return destination
-            }
-        }
-        return self.destination
-    }
+    let activity: Activity
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Image(activity.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Text(activity.name)
-                .font(.system(size: 12, weight: .semibold))
-                .padding()
+            if let url = URL(string: activity.imageName) {
+                AsyncImage(url: url) { state in
+                    switch state {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    default:
+                        ProgressView()
+                    }
+                }
+                Text(activity.name)
+                    .font(.system(size: 12, weight: .semibold))
+                    .padding()
+            }
         }
         .padding()
     }
 }
 
-
 struct CategoryDetailCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailCardView(vm: DestinationViewModel(), activity:
+        CategoryDetailCardView(activity:
                 .init(
                     id: 0,
                     category: "",

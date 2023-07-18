@@ -6,37 +6,33 @@
 //
 
 import Foundation
+import NetworkManager
 
 class CategoryDetailsViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var activities: [Activity] = []
+    @Published var category: Category = .culture
     @Published var errorMessage = ""
-    init() {
-        let urlString = "https://trendytravel.onrender.com/activities"
-        guard let url = URL(string: urlString)
-        else {
-            self.isLoading = false
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 400 {
+    
+    let urlString = "https://trendytravel.onrender.com/activities"
+
+    func getActivities(from category: Category) async {
+        let api = NetworkManager()
+        do {
+            let fetchedActivities: [Activity] = try await api.fetch(from: urlString)
+            DispatchQueue.main.async {
+                self.activities = fetchedActivities.filter {
+                    $0.category == category.rawValue
+                }
+                if !self.activities.isEmpty {
                     self.isLoading = false
-                    self.errorMessage = "Bad status: \(statusCode)"
-                    return
                 }
-                
-                guard let data = data else { return }
-                do {
-                    self.activities = try JSONDecoder().decode([Activity].self, from: data)
-                } catch {
-                    print("Failed to decode JSON: ", error)
-                    self.errorMessage = error.localizedDescription
-                }
-                self.isLoading = false
+                self.category = category
             }
-        }.resume()
+        } catch {
+            DispatchQueue.main.async {
+                self.errorMessage = error.localizedDescription
+            }
+        }
     }
 }
