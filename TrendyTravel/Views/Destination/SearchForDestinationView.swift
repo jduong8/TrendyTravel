@@ -13,22 +13,35 @@ struct SearchForDestinationView: View {
     @State var filteredDestinations: [Destination] = []
     
     var body: some View {
-        ScrollView {
             VStack {
-                ForEach(filteredDestinations, id: \.id) { destination in
-                    NavigationLink {
-                        PopularDestinationsDetailsView(destination: destination)
-                    } label: {
-                        Text(destination.city)
+                if search != "" {
+                    ForEach(filteredDestinations, id: \.id) { destination in
+                        NavigationLink {
+                            PopularDestinationsDetailsView(destination: destination)
+                        } label: {
+                            Text(destination.city)
+                        }
                     }
-                }
-                .searchable(text: $search,
-                            placement: .navigationBarDrawer(displayMode: .always),
-                            prompt: "Search for a destination")
-                .onChange(of: search) { newValue in
-                    filterDestinations()
+                } else {
+                    VStack {
+                        PopularDestinationsView(viewModel: destinationViewModel)
+                            .onAppear {
+                                destinationViewModel
+                                    .getPopularDestinations()
+                            }
+                        PopularActivitiesView()
+                        TrendingCreatorsView()
+                    }
+                    .background(Color.white)
+                    .cornerRadius(16)
+                    .padding(.top, 32)
                 }
             }
+        .searchable(text: $search,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Search for a destination")
+        .onChange(of: search) { newValue in
+            filterDestinations()
         }
         .task {
             destinationViewModel.getAllDestinations()

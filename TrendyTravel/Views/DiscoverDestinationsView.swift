@@ -19,22 +19,9 @@ struct DiscoverDestinationsView: View {
                 Color.white
                     .offset(y: 400)
                 ScrollView(showsIndicators: false) {
-                    SearchForDestinationView(destinationViewModel: destinationViewModel)
                     CategoriesView()
-                    VStack {
-                        PopularDestinationsView(viewModel: destinationViewModel)
-                            .onAppear {
-                                destinationViewModel
-                                    .getPopularDestinations()
-                            }
-                        PopularActivitiesView()
-                        TrendingCreatorsView()
-                    }
-                    .background(Color.white)
-                    .cornerRadius(16)
-                    .padding(.top, 32)
+                    SearchForDestinationView(destinationViewModel: destinationViewModel)
                 }
-                
                 .navigationTitle("Discover")
             }
         }
