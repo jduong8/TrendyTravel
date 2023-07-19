@@ -37,6 +37,6 @@ struct CustomMapAnnotation: View {
 
 struct CustomMapAnnotation_Previews: PreviewProvider {
     static var previews: some View {
-        CustomMapAnnotation(activity: .init(id: 1, category: "", name: "", imageName: "", link: "", price: "", latitude: 0.0, longitude: 0.0, description: "", rating: 0, destinationId: 1))
+        CustomMapAnnotation(activity: .init(id: 1, category: "", name: "", imageName: "", link: "", price: "", latitude: 0.0, longitude: 0.0, description: "", rating: 0, destinationId: 1, destination: .initial))
     }
 }

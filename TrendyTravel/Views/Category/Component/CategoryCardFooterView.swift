@@ -42,12 +42,12 @@ extension CategoryCardFooterView {
                         size: 12,
                         weight: .semibold
                     ))
-                Text(activity.destination.city.capitalized)
+                Text(activity.destination?.city.capitalized ?? "")
                     .font(.system(
                         size: 10,
                         weight: .semibold
                     ))
-                Text(activity.destination.country.capitalized)
+                Text(activity.destination?.country.capitalized ?? "")
                     .foregroundColor(.gray)
                     .font(.system(
                         size: 10,
