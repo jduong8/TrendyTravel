@@ -42,17 +42,21 @@ extension CategoryCardFooterView {
                         size: 12,
                         weight: .semibold
                     ))
-                Text(activity.destination?.city.capitalized ?? "")
-                    .font(.system(
-                        size: 10,
-                        weight: .semibold
-                    ))
-                Text(activity.destination?.country.capitalized ?? "")
-                    .foregroundColor(.gray)
-                    .font(.system(
-                        size: 10,
-                        weight: .semibold
-                    ))
+                if let city = activity.destination?.city {
+                    Text(city.capitalized)
+                        .font(.system(
+                            size: 10,
+                            weight: .semibold
+                        ))
+                }
+                if let country = activity.destination?.country {
+                    Text(country.capitalized)
+                        .foregroundColor(.gray)
+                        .font(.system(
+                            size: 10,
+                            weight: .semibold
+                        ))
+                }
             }
             .padding(.leading, 8)
             Spacer()

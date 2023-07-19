@@ -22,14 +22,13 @@ struct PopularDestinationsDetailsView: View {
     
     func activityImages(destination: Destination) -> [String] {
         var images: [String] = []
-        for activity in destination.activities {
+        guard let activities = destination.activities else { return [] }
+        for activity in activities {
             images.append(activity.imageName)
         }
         return images
     }
 
-
-    
     var body: some View {
         ScrollView(showsIndicators: false) {
             CarouselHeaderView(images: activityImages(destination: destination))
@@ -63,12 +62,14 @@ struct PopularDestinationsDetailsView: View {
                     .labelsHidden()
             }
             .padding()
-            Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? destination.activities : []) { activity in
-                MapAnnotation(coordinate: .init(latitude: activity.latitude, longitude: activity.longitude)) {
-                    CustomMapAnnotation(activity: activity)
+            if let activities = self.destination.activities {
+                Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? activities : []) { activity in
+                    MapAnnotation(coordinate: .init(latitude: activity.latitude, longitude: activity.longitude)) {
+                        CustomMapAnnotation(activity: activity)
+                    }
                 }
+                .frame(height: 300)
             }
-            .frame(height: 300)
         }
         .navigationBarTitle(destination.city, displayMode: .inline)
     }
