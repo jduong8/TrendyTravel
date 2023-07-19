@@ -11,7 +11,7 @@ struct Destination: Codable, Hashable {
     var id: Int
     var country, city, imageName: String
     var latitude, longitude: Double
-    var activities: [Activity]
+    var activities: [Activity]?
     
     enum CodingKeys: String, CodingKey {
         case id, country, city, imageName, latitude, longitude
