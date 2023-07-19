@@ -6,23 +6,28 @@
 //
 
 import Foundation
+import NetworkManager
 
 class UserViewModel: ObservableObject {
-    
     @Published var users: [User] = []
-    
-    func getUsers() -> [User] {
-        guard let url = URL(string: "https://trendytravel.onrender.com/users") else { return users }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                guard let data = data else { return }
-                do {
-                    self.users = try JSONDecoder().decode([User].self, from: data)
-                } catch let jsonError {
-                    print("Decoding failed for UserDetails:", jsonError)
-                }
-            }
-        }.resume()
-        return users
+    @Published var user: User = User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [Post(id: 0, title: "1st post", imageName: "eiffel_tower", hashtags: ["paradise", "lost"], userID: 0)], follower: [])
+    @Published var followers: [Follower] = []
+
+    let baseURLUser = "https://trendytravel.onrender.com/users"
+    let network = NetworkManager()
+
+    func getUsers() async throws -> [User] {
+        return try await network.fetch(from: baseURLUser)
     }
+
+    func getUser(id: Int) async throws -> User {
+        let userURL = "\(baseURLUser)/\(id)"
+        return try await network.fetch(from: userURL)
+    }
+    
+    func getFolowerUser(id: Int) async throws -> [Follower]{
+        let userURL = "https://trendytravel.onrender.com/followers/\(id)"
+        return try await network.fetch(from: userURL)
+    }
+    
 }

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct PopularDestinationsView: View {
+
     @ObservedObject var viewModel: DestinationViewModel
+
     var body: some View {
         VStack {
             HStack {

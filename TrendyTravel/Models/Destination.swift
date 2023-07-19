@@ -18,4 +18,5 @@ struct Destination: Codable, Hashable {
         case activities = "Activities"
     }
     
+    static let initial = Destination(id: 0, country: "France", city: "Paris", imageName: "", latitude: 0.0, longitude: 0.0)
 }

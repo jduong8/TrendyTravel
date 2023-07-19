@@ -8,21 +8,19 @@
 import SwiftUI
 
 struct ActivityDetailsView: View {
-    @ObservedObject var vm = ActivityDetailViewModel()
-    let restaurant: Restaurant
-    var reviews: [Review]
+    let activity: Activity
     var body: some View{
         ScrollView {
             ZStack(alignment: .bottomLeading) {
-                Image(restaurant.image)
-                    .resizable()
+                AsyncImage(url: URL(string: activity.imageName))
+                
                     .scaledToFill()
                 
                 LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black]), startPoint: .center, endPoint: .bottom)
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(restaurant.name)
+                        Text(activity.name)
                             .foregroundColor(.white)
                             .font(.system(size: 18, weight: .bold))
                         HStack {
@@ -50,15 +48,15 @@ struct ActivityDetailsView: View {
             }
             .padding(.top)
             .padding(.horizontal)
-            Text(vm.details?.description ?? "")
+            Text(activity.description)
                 .padding(.top, 8)
                 .font(.system(size: 14, weight: .regular))
                 .padding(.horizontal)
                 .padding(.bottom)
             Divider()
                 .padding(.horizontal)
-            ActivityReviewList(reviews: reviews)
-                .padding(.top)
+//            ActivityReviewList(reviews: reviews)
+//                .padding(.top)
         }
         .navigationBarTitle("Restaurant Details", displayMode: .inline)
     }
@@ -67,7 +65,7 @@ struct ActivityDetailsView: View {
 struct RestaurantDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ActivityDetailsView(restaurant: .init(name: "Japan's Finest Tapas", image: "tapas"), reviews: [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
+            ActivityDetailsView(activity: .initial)
         }
     }
 }

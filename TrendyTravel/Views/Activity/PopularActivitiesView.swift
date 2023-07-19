@@ -8,33 +8,38 @@
 import SwiftUI
 
 struct PopularActivitiesView: View {
-    let restaurants: [Restaurant] = [
-        .init(name: "Japan's Finest Tapas", image: "tapas"),
-        .init(name: "Bar & Grill", image: "bar_grill")]
+    @EnvironmentObject var activity: ActivityDetailViewModel
     var body: some View {
         VStack {
             HStack {
-                Text("Popular Restaurants")
+                Text("Popular Activities")
                     .font(.system(size: 14, weight: .semibold))
                 Spacer()
                 Text("See all")
                     .font(.system(size: 12, weight: .semibold))
             }
+            .onAppear {
+                Task {
+                    activity.activity = try await activity.getActivities()
+                }
+            }
             .padding(.horizontal)
             .padding(.top)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(restaurants, id: \.self) { restaurant in
+                    ForEach(activity.activity, id: \.self) { activity in
                         NavigationLink {
-                            ActivityDetailsView(restaurant: restaurant, reviews: [Review(id: 0, content: "Very good restaurant with typical Tokyo habitants and amazing food", rating: 5, userID: 0, activityID: 0)])
+                            ActivityDetailsView(activity: activity)
                         } label: {
-                            ActivityTile(restaurant: restaurant)
+                            ActivityTile(activity: activity)
                                 .foregroundColor(Color(.label))
                         }
                         .frame(width: 240)
                         .padding(.bottom)
                     }
+                    
                 }
+                
                 .padding(.horizontal)
             }
         }
@@ -43,6 +48,6 @@ struct PopularActivitiesView: View {
 
 struct PopularRestaurantsView_Previews: PreviewProvider {
     static var previews: some View {
-        PopularActivitiesView()
+        PopularActivitiesView().environmentObject(ActivityDetailViewModel())
     }
 }

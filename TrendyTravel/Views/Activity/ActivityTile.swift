@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct ActivityTile: View {
-    let restaurant: Restaurant
+    let activity: Activity
     var body: some View {
         HStack(spacing: 8) {
-            Image(restaurant.image)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 60, height: 60)
-                .clipped()
-                .cornerRadius(5)
-                .padding(.leading, 6)
-                .padding(.vertical, 6)
+            AsyncImage(
+                url: URL(string: activity.imageName),
+                content: { image in
+                    image.resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(10)
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
             VStack(alignment: .leading, spacing: 6) {
                 HStack {
-                    Text(restaurant.name)
+                    Text(activity.name)
                     Spacer()
                     Button(action: {}) {
                         Image(systemName: "ellipsis")
@@ -30,9 +34,9 @@ struct ActivityTile: View {
                 }
                 HStack {
                     Image(systemName: "star.fill")
-                    Text("4.7")
+                    Text("\(activity.rating)")
                 }
-                Text("Tokyo, Japan")
+                Text("\(activity.destination.city), \(activity.destination.country)")
             }
             .font(.system(size: 12, weight: .semibold))
             Spacer()
@@ -42,6 +46,6 @@ struct ActivityTile: View {
 
 struct RestaurantTile_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityTile(restaurant: .init(name: "", image: ""))
+        ActivityTile(activity: .initial)
     }
 }
