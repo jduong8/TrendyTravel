@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1082DBE32A667D4E006870CE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1082DBE22A667D4E006870CE /* NetworkManager */; };
+		10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */; };
 		13ED18D52A669C0B0005CFCE /* CategoryCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */; };
 		13ED18D82A669C980005CFCE /* RoundedCornder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D72A669C980005CFCE /* RoundedCornder.swift */; };
 		13ED18DA2A669D2D0005CFCE /* CategoryCardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDestinationsView.swift; sourceTree = "<group>"; };
 		13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardHeaderView.swift; sourceTree = "<group>"; };
 		13ED18D72A669C980005CFCE /* RoundedCornder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornder.swift; sourceTree = "<group>"; };
 		13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardFooterView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				7539DE5C2A4999A50015FA4F /* PopularDestinationsView.swift */,
+				10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */,
 				13F378A42A65458100EE2A0A /* PopularDestinationsDetailsView.swift */,
 				13F378C22A65651800EE2A0A /* Component */,
 			);
@@ -475,6 +478,7 @@
 				7539DE562A4996F40015FA4F /* CategoriesIconsView.swift in Sources */,
 				758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */,
 				7539DE542A4995EA0015FA4F /* CategoriesView.swift in Sources */,
+				10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */,
 				13ED18D82A669C980005CFCE /* RoundedCornder.swift in Sources */,
 				13F378942A65435E00EE2A0A /* Restaurant.swift in Sources */,
 				13F378A52A65458100EE2A0A /* PopularDestinationsDetailsView.swift in Sources */,

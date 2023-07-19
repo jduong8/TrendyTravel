@@ -36,7 +36,7 @@ struct ActivityTile: View {
                     Image(systemName: "star.fill")
                     Text("\(activity.rating)")
                 }
-                Text("\(activity.destination.city), \(activity.destination.country)")
+                Text("\(activity.destination?.city ?? ""), \(activity.destination?.country ?? "")")
             }
             .font(.system(size: 12, weight: .semibold))
             Spacer()
