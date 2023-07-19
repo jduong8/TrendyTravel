@@ -19,7 +19,7 @@ struct SearchForDestinationView: View {
                         NavigationLink {
                             PopularDestinationsDetailsView(destination: destination)
                         } label: {
-                            Text(destination.city)
+                            PopularDestinationTile(destination: destination)
                         }
                     }
                 } else {
