@@ -11,10 +11,21 @@ struct PopularDestinationTile: View {
     let destination: Destination
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Image(destination.imageName)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 125, height: 125)
+            AsyncImage(url: URL(string: destination.imageName)) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                case .failure(let error):
+                    Text("Failed to load image: \(error.localizedDescription)")
+                @unknown default:
+                    Text("Unknown image loading error")
+                }
+            }
+            .frame(width: 125, height: 125)
                 .cornerRadius(4)
                 .padding(.all, 6)
             Text(destination.city)

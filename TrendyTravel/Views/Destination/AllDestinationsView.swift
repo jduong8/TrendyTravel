@@ -9,13 +9,23 @@ import SwiftUI
 
 struct AllDestinationsView: View {
     @ObservedObject var viewModel: DestinationViewModel
+    
     var body: some View {
         ScrollView {
-            ForEach(viewModel.destinations, id: \.self) { destination in
-                Text(destination.city)
-                    .onAppear {
-                        viewModel.getAllDestinations()
+           VStack{
+                ForEach(viewModel.destinations, id: \.self) { destination in
+                    NavigationLink {
+                        PopularDestinationsDetailsView(destination: destination)
+                    } label: {
+                        DestinationTileView(destination: destination)
                     }
+
+                    
+                }
+            }
+            .padding()
+            .onAppear {
+                viewModel.getAllDestinations()
             }
         }
     }
