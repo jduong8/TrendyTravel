@@ -11,7 +11,7 @@ struct User: Codable, Hashable {
     var id: Int
     var firstName, lastName, description, profilImage: String
     var pseudo, password, email: String
-    var posts: [Post]
+    var posts: [Post]?
     var follower: [Follower]?
 
     enum CodingKeys: String, CodingKey {

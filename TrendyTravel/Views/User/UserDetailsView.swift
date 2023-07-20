@@ -39,7 +39,7 @@ struct UserDetailsView: View {
                     Text("@\(user.pseudo) •")
                     Image(systemName: "hand.thumbsup.fill")
                         .font(.system(size: 10, weight: .semibold))
-                    Text("\(user.posts.count)")
+                    Text("\(user.posts?.count ?? 0)")
                 }
                 .font(.system(size: 12, weight: .regular))
                 
@@ -107,67 +107,77 @@ struct UserDetailsView: View {
                     }
                 }
                 .font(.system(size: 12, weight: .semibold))
-                
-                ForEach(user.posts, id: \.self) { post in
-                    VStack(alignment: .leading) {
-                        AsyncImage(
-                            url: URL(string: post.imageName),
-                            content: { image in
-                                image.resizable()
-                                    .scaledToFill()
-                                    .clipped()
-                            },
-                            placeholder: {
-                                ProgressView()
-                            })
-                        HStack(alignment: .top) {
+                if (user.posts != nil) {
+                    ForEach(user.posts!, id: \.self) { post in
+                        VStack(alignment: .leading) {
                             AsyncImage(
-                                url: URL(string: user.profilImage),
+                                url: URL(string: post.imageName),
                                 content: { image in
                                     image.resizable()
-                                        .scaledToFit()
-                                        .frame(height: 34)
-                                        .clipShape(Circle())
+                                        .scaledToFill()
+                                        .clipped()
                                 },
                                 placeholder: {
                                     ProgressView()
                                 })
-                            VStack(alignment: .leading) {
-                                Text(post.title)
-                                    .font(.system(size: 14, weight: .semibold))
-                                HStack {
-                                    ForEach(post.hashtags, id: \.self) { hashtag in
-                                        Text("#\(hashtag)")
-                                            .foregroundColor(Color.purple)
-                                            .font(.system(size: 13, weight: .semibold))
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 2)
-                                            .background(Color.purple.opacity(0.2))
-                                            .cornerRadius(20)
+                            HStack(alignment: .top) {
+                                AsyncImage(
+                                    url: URL(string: user.profilImage),
+                                    content: { image in
+                                        image.resizable()
+                                            .scaledToFit()
+                                            .frame(height: 34)
+                                            .clipShape(Circle())
+                                    },
+                                    placeholder: {
+                                        ProgressView()
+                                    })
+                                VStack(alignment: .leading) {
+                                    Text(post.title)
+                                        .font(.system(size: 14, weight: .semibold))
+                                    HStack {
+                                        ForEach(post.hashtags, id: \.self) { hashtag in
+                                            Text("#\(hashtag)")
+                                                .foregroundColor(Color.purple)
+                                                .font(.system(size: 13, weight: .semibold))
+                                                .padding(.horizontal, 12)
+                                                .padding(.vertical, 2)
+                                                .background(Color.purple.opacity(0.2))
+                                                .cornerRadius(20)
+                                        }
                                     }
                                 }
                             }
-                        }
-                        .padding(.horizontal, 8)
-                        HStack {
-                            Button {
-                                isLiked.toggle()
-                            } label: {
-                                Image(systemName: "hand.thumbsup.fill")
-                                    .foregroundColor(isLiked ? .cyan : .secondary)
-                                    .font(.system(size: 12))
+                            .padding(.horizontal, 8)
+                            HStack {
+                                Button {
+                                    isLiked.toggle()
+                                    if isLiked == true {
+                                        Task {
+                                            try await vm.AddLike(userId: vm.user.id, postId: post.id)
+                                        }
+                                    } else {
+                                        Task {
+                                            try await vm.deleteLike(id: vm.user.id)
+                                        }
+                                    }
+                                } label: {
+                                    Image(systemName: "hand.thumbsup.fill")
+                                        .foregroundColor(isLiked ? .cyan : .secondary)
+                                        .font(.system(size: 12))
+                                }
+                                Text("102 likes")
+                                    .font(.system(size: 12, weight: .regular))
+                                    .foregroundColor(.gray)
                             }
-                            Text("102 likes")
-                                .font(.system(size: 12, weight: .regular))
-                                .foregroundColor(.gray)
+                            .padding(.horizontal)
+                            .padding(.bottom, 6)
+                            Spacer()
                         }
-                        .padding(.horizontal)
-                        .padding(.bottom, 6)
-                        Spacer()
+                        .background(Color(white: 1))
+                        .cornerRadius(12)
+                        .shadow(color: .init(white: 0.8), radius: 5, x: 0, y: 4)
                     }
-                    .background(Color(white: 1))
-                    .cornerRadius(12)
-                    .shadow(color: .init(white: 0.8), radius: 5, x: 0, y: 4)
                 }
             }
             .padding(.horizontal)
