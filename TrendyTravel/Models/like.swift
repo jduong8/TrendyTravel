@@ -9,7 +9,7 @@ import Foundation
 
 struct Like: Codable, Hashable {
     let id, postID, userID: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case postID = "postId"
