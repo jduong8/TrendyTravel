@@ -7,7 +7,13 @@
 
 import Foundation
 
+// MARK: - Follower
 struct Follower: Codable, Hashable {
-    var followerId: Int
-    var followedId: Int
+    let id, followerID, followedID: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case followerID = "followerId"
+        case followedID = "followedId"
+    }
 }
