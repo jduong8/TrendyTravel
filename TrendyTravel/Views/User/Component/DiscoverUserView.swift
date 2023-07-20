@@ -11,12 +11,19 @@ struct DiscoverUserView: View {
     let user: User
     var body: some View {
         VStack {
-            Image(user.profilImage)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 80, height: 80)
-                .cornerRadius(.infinity)
-
+            AsyncImage(
+                url: URL(string: user.profilImage),
+                content: { image in
+                    image.resizable()
+                        .scaledToFill()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(.infinity)
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
+            
             Text(user.firstName)
                 .font(.system(size: 11, weight: .semibold))
                 .multilineTextAlignment(.center)

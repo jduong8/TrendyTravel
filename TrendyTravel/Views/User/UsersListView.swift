@@ -15,7 +15,7 @@ struct UsersListView: View {
             LazyVGrid(columns: column) {
                 ForEach(vm.users, id: \.self) { user in
                     NavigationLink {
-                        UserDetailsView(user: user)
+                        UserDetailsView(vm: vm, user: user)
                     } label: {
                         DiscoverUserView(user: user)
                     }

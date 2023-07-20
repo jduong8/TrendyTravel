@@ -12,7 +12,7 @@ struct User: Codable, Hashable {
     var firstName, lastName, description, profilImage: String
     var pseudo, password, email: String
     var posts: [Post]
-    var follower: [Follower]
+    var follower: [Follower]?
 
     enum CodingKeys: String, CodingKey {
         case id

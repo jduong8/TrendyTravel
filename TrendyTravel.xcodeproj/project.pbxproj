@@ -51,6 +51,7 @@
 		758A0E802A4D64EB008E22FC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E7F2A4D64EB008E22FC /* Post.swift */; };
 		758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */; };
 		DC0549072A66E49F00AFFE3C /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0549062A66E49F00AFFE3C /* Follower.swift */; };
+		DC1CB5622A68253200528701 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CB5612A68253200528701 /* Like.swift */; };
 		DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB10EB02A65BE80003D1AAD /* UsersListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		758A0E7F2A4D64EB008E22FC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		DC0549062A66E49F00AFFE3C /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		DC1CB5612A68253200528701 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		DCB10EB02A65BE80003D1AAD /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -313,6 +315,7 @@
 				13F378AC2A65469400EE2A0A /* RestaurantDetail.swift */,
 				13F378A62A6545BB00EE2A0A /* Attraction.swift */,
 				DC0549062A66E49F00AFFE3C /* Follower.swift */,
+				DC1CB5612A68253200528701 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */,
 				13F378AF2A6546B900EE2A0A /* Review.swift in Sources */,
 				7539DE522A4995CB0015FA4F /* Destination.swift in Sources */,
+				DC1CB5622A68253200528701 /* Like.swift in Sources */,
 				7539DE582A4997BD0015FA4F /* ActivitiesListView.swift in Sources */,
 				13F378AD2A65469400EE2A0A /* RestaurantDetail.swift in Sources */,
 				13F378B92A65479C00EE2A0A /* UserViewModel.swift in Sources */,
