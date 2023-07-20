@@ -74,7 +74,7 @@ struct UserDetailsView: View {
                         isFollowed.toggle()
                         if isFollowed == true {
                             Task {
-//                                try await vm.AddFollower(followerId: vm.user.id, followedId: user.id)
+                                try await vm.AddFollower(followerId: vm.user.id, followedId: user.id)
                             }
                         } else {
                             Task {

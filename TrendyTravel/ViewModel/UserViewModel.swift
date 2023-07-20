@@ -89,7 +89,7 @@ enum ErrorMessage: Error {
     }
     func deleteFollower(id: Int) async throws -> Follower {
         print("1")
-        guard let url = URL(string: "https://trendytravel.onrender.com/followers/46")
+        guard let url = URL(string: "https://trendytravel.onrender.com/followers/\(id)")
         else {
             print("2")
             throw ErrorMessage.badURL
