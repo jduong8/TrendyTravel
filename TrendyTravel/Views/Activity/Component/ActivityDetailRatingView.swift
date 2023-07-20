@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StarRatingView: View {
+
     let rating: Int
     
     var body: some View {

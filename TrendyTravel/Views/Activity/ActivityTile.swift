@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ActivityTile: View {
+
     let activity: Activity
+
     var body: some View {
         HStack(spacing: 8) {
             AsyncImage(

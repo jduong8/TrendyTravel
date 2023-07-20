@@ -12,6 +12,7 @@ struct UserDetailsView: View {
     @State private var isFollowed = false
     @State private var isLiked = false
     let user: User
+
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
@@ -108,7 +109,7 @@ struct UserDetailsView: View {
                 }
                 .font(.system(size: 12, weight: .semibold))
                 if let posts = user.posts {
-                    ForEach(user.posts!, id: \.self) { post in
+                    ForEach(posts, id: \.self) { post in
                         VStack(alignment: .leading) {
                             AsyncImage(
                                 url: URL(string: post.imageName),

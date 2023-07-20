@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ActivityDetailsView: View {
-    let activity: Activity
-    @StateObject private var reviewViewModel = ActivityReviewViewModel()
+
+    @StateObject private var reviewViewModel: ActivityReviewViewModel
+
+    init(selectedActivity: Activity) {
+        self._reviewViewModel = StateObject(wrappedValue: ActivityReviewViewModel(selectedActivity: selectedActivity))
+    }
+
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomLeading) {
                 AsyncImage(
-                    url: URL(string: activity.imageName),
+                    url: URL(string: reviewViewModel.selectedActivity.imageName),
                     content: { image in
                         image
                             .resizable()
@@ -28,11 +33,11 @@ struct ActivityDetailsView: View {
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(activity.name)
+                        Text(reviewViewModel.selectedActivity.name)
                             .foregroundColor(.white)
                             .font(.system(size: 18, weight: .bold))
                         HStack {
-                            StarRatingView(rating: activity.rating)
+                            StarRatingView(rating: reviewViewModel.selectedActivity.rating)
                                 .font(.title2)
                                 .foregroundColor(.orange)
                         }
@@ -44,16 +49,18 @@ struct ActivityDetailsView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Location & Description")
                     .font(.system(size: 16, weight: .bold))
-                Text("\(activity.destination?.city.capitalized ?? "Unknown City"), \(activity.destination?.country.capitalized ?? "Unknown Country")")
+                if let activity = reviewViewModel.selectedActivity.destination {
+                    Text("\(activity.city.capitalized), \(activity.country.capitalized)")
+                }
                 HStack {
-                    Text(activity.price)
+                    Text(reviewViewModel.selectedActivity.price)
                 }
                 .foregroundColor(.orange)
                 HStack { Spacer()}
             }
             .padding(.top)
             .padding(.horizontal)
-            Text(activity.description)
+            Text(reviewViewModel.selectedActivity.description)
                 .padding(.top, 8)
                 .font(.system(size: 14, weight: .regular))
                 .padding(.horizontal)
@@ -71,7 +78,7 @@ struct ActivityDetailsView: View {
 struct ActivityDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ActivityDetailsView(activity: .initial)
+            ActivityDetailsView(selectedActivity: .initial)
         }
     }
 }

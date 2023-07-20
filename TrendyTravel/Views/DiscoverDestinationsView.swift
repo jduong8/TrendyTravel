@@ -41,17 +41,14 @@ struct DiscoverDestinationsView: View {
 }
 
 struct DestinationsListView_Previews: PreviewProvider {
-    //    @EnvironmentObject var userVm = UserViewModel()
     static var previews: some View {
         DiscoverDestinationsView(authenticationVM: .init())
             .colorScheme(.light)
             .environmentObject(UserViewModel())
-            .environmentObject(DestinationViewModel())
             .environmentObject(ActivityViewModel())
         DiscoverDestinationsView(authenticationVM: .init())
             .colorScheme(.dark)
             .environmentObject(UserViewModel())
-            .environmentObject(DestinationViewModel())
             .environmentObject(ActivityViewModel())
     }
 }
