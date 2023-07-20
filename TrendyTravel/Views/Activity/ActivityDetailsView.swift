@@ -8,26 +8,38 @@
 import SwiftUI
 
 struct ActivityDetailsView: View {
-    let activity: Activity
-    var body: some View{
+
+    @StateObject private var reviewViewModel: ActivityReviewViewModel
+
+    init(selectedActivity: Activity) {
+        self._reviewViewModel = StateObject(wrappedValue: ActivityReviewViewModel(selectedActivity: selectedActivity))
+    }
+
+    var body: some View {
         ScrollView {
             ZStack(alignment: .bottomLeading) {
-                AsyncImage(url: URL(string: activity.imageName))
-                
-                    .scaledToFill()
-                
+                AsyncImage(
+                    url: URL(string: reviewViewModel.selectedActivity.imageName),
+                    content: { image in
+                        image
+                            .resizable()
+                            .frame(height: 200)
+                    },
+                    placeholder: {
+                        ProgressView()
+                    }
+                )
                 LinearGradient(gradient: Gradient(colors: [Color.clear, Color.black]), startPoint: .center, endPoint: .bottom)
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(activity.name)
+                        Text(reviewViewModel.selectedActivity.name)
                             .foregroundColor(.white)
                             .font(.system(size: 18, weight: .bold))
                         HStack {
-                            ForEach(0..<5, id: \.self) { _ in
-                                Image(systemName: "star.fill")
-                            }
-                            .foregroundColor(.orange)
+                            StarRatingView(rating: reviewViewModel.selectedActivity.rating)
+                                .font(.title2)
+                                .foregroundColor(.orange)
                         }
                     }
                     Spacer()
@@ -37,35 +49,36 @@ struct ActivityDetailsView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Location & Description")
                     .font(.system(size: 16, weight: .bold))
-                Text("Tokyo, Japan")
-                HStack {
-                    ForEach(0..<5, id: \.self) { _ in
-                        Image(systemName: "dollarsign.circle.fill")
-                    }
-                    .foregroundColor(.orange)
+                if let activity = reviewViewModel.selectedActivity.destination {
+                    Text("\(activity.city.capitalized), \(activity.country.capitalized)")
                 }
-                HStack { Spacer() }
+                HStack {
+                    Text(reviewViewModel.selectedActivity.price)
+                }
+                .foregroundColor(.orange)
+                HStack { Spacer()}
             }
             .padding(.top)
             .padding(.horizontal)
-            Text(activity.description)
+            Text(reviewViewModel.selectedActivity.description)
                 .padding(.top, 8)
                 .font(.system(size: 14, weight: .regular))
                 .padding(.horizontal)
                 .padding(.bottom)
             Divider()
                 .padding(.horizontal)
-//            ActivityReviewList(reviews: reviews)
-//                .padding(.top)
+            ScrollView {
+                ActivityReviewsView(reviewViewModel: reviewViewModel)
+            }
         }
-        .navigationBarTitle("Restaurant Details", displayMode: .inline)
+        .navigationBarTitle("Activity Details", displayMode: .inline)
     }
 }
 
-struct RestaurantDetailsView_Previews: PreviewProvider {
+struct ActivityDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ActivityDetailsView(activity: .initial)
+            ActivityDetailsView(selectedActivity: .initial)
         }
     }
 }
