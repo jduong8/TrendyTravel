@@ -91,21 +91,16 @@ enum ErrorMessage: Error {
     }
     func deleteFollower(id: Int) async throws {
         print("1")
-        guard let url = URL(string: "https://trendytravel.onrender.com/followers/\(id)") else {
-            throw URLError(.badURL)
+        Task {
+            do {
+                let followerDelete: () = try await network.delete(from: "https://trendytravel.onrender.com/followers/\(id)")
+                print("sucess delete \(followerDelete)")
+            } catch {
+                print("Error fetching: \(error)")
+            
+            }
         }
-        print("2")
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "DELETE"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let (_, response) = try await URLSession.shared.data(for: urlRequest)
-        print("3")
-        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            print("4")
-            throw URLError(.badServerResponse)
-        }
+        return
     }
     func AddLike(userId: Int, postId: Int) async throws -> Like {
         guard let url = URL(string: "https://trendytravel.onrender.com/likes")
@@ -129,23 +124,17 @@ enum ErrorMessage: Error {
             throw URLError(.badServerResponse)
         }
     }
-    func deleteLike(id: Int) async throws -> Like{
+    func deleteLike(id: Int) async throws {
         print("1")
-        guard let url = URL(string: "https://trendytravel.onrender.com/likes/\(id)")
-        else {
-            throw ErrorMessage.badURL
+        Task {
+            do {
+                let likeDelete: () = try await network.delete(from: "https://trendytravel.onrender.com/likes/\(id)")
+                print("sucess delete \(likeDelete)")
+            } catch {
+                print("Error fetching: \(error)")
+            
+            }
         }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "DELETE"
-        print("2")
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
-        
-        let decoder = JSONDecoder()
-        print("3")
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let like = try decoder.decode(Like.self, from: data)
-        print("4")
-        print("success deleted: \(like)")
-        return like
+        return
     }
 }
