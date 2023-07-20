@@ -33,6 +33,8 @@ enum ErrorMessage: Error {
     @Published var users: [User] = []
     @Published var user: User = User(id: 1, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [Post(id: 0, title: "1st post", imageName: "eiffel_tower", hashtags: ["paradise", "lost"], userID: 0)], follower: [])
     @Published var followers: [Follower] = []
+    @Published var follower: Follower = .init(id: 1, followerID: 1, followedID: 1)
+    @Published var like: Like = .init(id: 1, postID: 1, userID: 1)
     
     let baseURLUser = "https://trendytravel.onrender.com/users"
     let network = NetworkManager()
@@ -79,37 +81,29 @@ enum ErrorMessage: Error {
         print("3")
         do{
             print("4")
-            let follow = try decoder.decode(Follower.self, from: data)
-            print("success created: \(follow)")
-            return follow
+            follower = try decoder.decode(Follower.self, from: data)
+            print("success created: \(follower)")
+            return follower
         } catch {
             print("5 \(URLError(.badServerResponse))")
             throw URLError(.badServerResponse)
         }
     }
-    func deleteFollower(id: Int) async throws -> Follower {
+    func deleteFollower(id: Int) async throws {
         print("1")
-        guard let url = URL(string: "https://trendytravel.onrender.com/followers/\(id)")
-        else {
-            print("2")
-            throw ErrorMessage.badURL
+        guard let url = URL(string: "https://trendytravel.onrender.com/followers/\(id)") else {
+            throw URLError(.badURL)
         }
+        print("2")
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "DELETE"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let (_, response) = try await URLSession.shared.data(for: urlRequest)
         print("3")
-        let decoder = JSONDecoder()
-        
-        print("4")
-        do{
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             print("4")
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let follow = try decoder.decode(Follower.self, from: data)
-            print("success deleted: \(follow)")
-            return follow
-        } catch {
-            print("5 \(URLError(.badServerResponse))")
             throw URLError(.badServerResponse)
         }
     }
@@ -128,28 +122,30 @@ enum ErrorMessage: Error {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         do{
-            let like = try decoder.decode(Like.self, from: data)
+            like = try decoder.decode(Like.self, from: data)
             print("success created: \(like)")
             return like
         } catch {
             throw URLError(.badServerResponse)
         }
     }
-    func deleteLike(id: Int) async throws {
+    func deleteLike(id: Int) async throws -> Like{
+        print("1")
         guard let url = URL(string: "https://trendytravel.onrender.com/likes/\(id)")
         else {
             throw ErrorMessage.badURL
         }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "DELETE"
-        
+        print("2")
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         
         let decoder = JSONDecoder()
+        print("3")
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let like = try decoder.decode(Like.self, from: data)
-        
+        print("4")
         print("success deleted: \(like)")
-        return
+        return like
     }
 }

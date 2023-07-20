@@ -78,7 +78,7 @@ struct UserDetailsView: View {
                             }
                         } else {
                             Task {
-                                try await vm.deleteFollower(id: vm.user.id)
+                                try await vm.deleteFollower(id: vm.follower.id)
                             }
                         }
                     } label: {
