@@ -20,6 +20,7 @@ struct ActivityReviewsView: View {
                     StarRatingView(rating: review.rating)
                         .foregroundColor(.orange)
                     Text("\(review.content)")
+                    Text("\(review.user.firstName)")
                 }
                 .padding()
                 .background(Color.white.opacity(0.1))
