@@ -17,7 +17,7 @@ struct SearchForDestinationView: View {
                 if search != "" {
                     ForEach(filteredDestinations, id: \.id) { destination in
                         NavigationLink {
-                            PopularDestinationsDetailsView(destination: destination)
+                            DestinationDetailView(destination: destination)
                         } label: {
                             PopularDestinationTile(destination: destination)
                         }

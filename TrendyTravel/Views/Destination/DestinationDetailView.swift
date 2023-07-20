@@ -1,5 +1,5 @@
 //
-//  PopularDestinationsDetailsView.swift
+//  DestinationDetailView.swift
 //  TrendyTravel
 //
 //  Created by Jonathan Duong on 17/07/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct PopularDestinationsDetailsView: View {
+struct DestinationDetailView: View {
     @ObservedObject var vm: DestinationViewModel
     let destination: Destination
     @State var region: MKCoordinateRegion
@@ -77,6 +77,6 @@ struct PopularDestinationsDetailsView: View {
 
 struct PopularDestinationsDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PopularDestinationsDetailsView(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0, activities: []))
+        DestinationDetailView(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0, activities: []))
     }
 }
