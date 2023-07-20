@@ -11,7 +11,7 @@ struct DestinationTileView: View {
     let destination: Destination
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             if let url = URL(string: destination.imageName) {
                 AsyncImage(url: url) { state in
                     switch state {
