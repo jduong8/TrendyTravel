@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Follower
 struct Follower: Codable, Hashable {
     let id, followerID, followedID: Int
 
