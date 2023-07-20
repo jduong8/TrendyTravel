@@ -12,10 +12,12 @@ struct Post: Codable, Hashable {
     var title, imageName: String
     var hashtags: [String]
     var userID: Int
+    var likes: [Like]?
 
     enum CodingKeys: String, CodingKey {
         case id, title, imageName, hashtags
         case userID = "userId"
+        case likes = "Likes"
     }
 }
 

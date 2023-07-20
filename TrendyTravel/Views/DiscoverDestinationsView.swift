@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct DiscoverDestinationsView: View {
+
     @StateObject var destinationViewModel = DestinationViewModel()
-    
+    @ObservedObject var authenticationVM: AuthenticationViewModel
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -23,20 +25,33 @@ struct DiscoverDestinationsView: View {
                     SearchForDestinationView(destinationViewModel: destinationViewModel)
                 }
                 .navigationTitle("Discover")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink {
+                            AuthenticationView(authenticationVM: authenticationVM)
+                        } label: {
+                            Image(systemName: "person.crop.circle")
+                                .font(.system(size: 30))
+                        }
+                    }
+                }
             }
         }
     }
 }
 
 struct DestinationsListView_Previews: PreviewProvider {
+    //    @EnvironmentObject var userVm = UserViewModel()
     static var previews: some View {
-        DiscoverDestinationsView()
+        DiscoverDestinationsView(authenticationVM: .init())
             .colorScheme(.light)
             .environmentObject(UserViewModel())
+            .environmentObject(DestinationViewModel())
             .environmentObject(ActivityViewModel())
-        DiscoverDestinationsView()
+        DiscoverDestinationsView(authenticationVM: .init())
             .colorScheme(.dark)
             .environmentObject(UserViewModel())
+            .environmentObject(DestinationViewModel())
             .environmentObject(ActivityViewModel())
     }
 }

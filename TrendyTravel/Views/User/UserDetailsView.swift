@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct UserDetailsView: View {
-
+    @ObservedObject var vm : UserViewModel
+    @State private var isFollowed = false
+    @State private var isLiked = false
     let user: User
-
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
-                Image("\(user.profilImage)")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80)
-                    .clipShape(Circle())
-                    .shadow(radius: 10)
-                    .overlay(
-                        Circle()
-                            .stroke(Color.cyan.opacity(0.6), lineWidth: 2)
-                            .frame(width: 80, height: 80)
-                    )
+                AsyncImage(
+                    url: URL(string: user.profilImage),
+                    content: { image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 80)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.cyan.opacity(0.6), lineWidth: 2)
+                                    .frame(width: 80, height: 80)
+                            )
+                    },
+                    placeholder: {
+                        ProgressView()
+                    })
                 Text("\(user.firstName) \(user.lastName)")
                     .font(.system(size: 14, weight: .semibold))
                 
@@ -32,17 +39,17 @@ struct UserDetailsView: View {
                     Text("@\(user.pseudo) •")
                     Image(systemName: "hand.thumbsup.fill")
                         .font(.system(size: 10, weight: .semibold))
-                    Text("2541")
+                    Text("\(user.posts?.count ?? 0)")
                 }
                 .font(.system(size: 12, weight: .regular))
                 
-                Text("YouTuber, Vlogger, Travel Creator")
+                Text(user.description)
                     .font(.system(size: 14, weight: .regular))
                     .foregroundColor(Color(.lightGray))
                 
                 HStack(spacing: 12) {
                     VStack {
-                        Text("3")
+                        Text("\(user.follower?.count ?? 0)")
                             .font(.system(size: 13, weight: .semibold))
                         Text("Followers")
                             .font(.system(size: 9, weight: .regular))
@@ -51,14 +58,30 @@ struct UserDetailsView: View {
                         .frame(width: 0.5, height: 12)
                         .background(Color(.lightGray))
                     VStack {
-                        Text("2")
+                        Text("\(vm.followers.count)")
+                            .onAppear {
+                                Task {
+                                    vm.followers = try await vm.getFolowerUser(id: user.id)
+                                }
+                            }
                             .font(.system(size: 13, weight: .semibold))
                         Text("Following")
                             .font(.system(size: 9, weight: .regular))
                     }
                 }
                 HStack(spacing: 12) {
-                    Button(action: {}) {
+                    Button {
+                        isFollowed.toggle()
+                        if isFollowed == true {
+                            Task {
+                                try await vm.AddFollower(followerId: vm.user.id, followedId: user.id)
+                            }
+                        } else {
+                            Task {
+                                try await vm.deleteFollower(id: vm.follower.id)
+                            }
+                        }
+                    } label: {
                         HStack {
                             Spacer()
                             Text("Follow")
@@ -66,10 +89,12 @@ struct UserDetailsView: View {
                             Spacer()
                         }
                         .padding(.vertical, 8)
-                        .background(Color.cyan)
+                        .background(isFollowed ? Color.cyan : Color.secondary)
                         .cornerRadius(50)
                     }
-                    Button(action: {}) {
+                    Button {
+                        
+                    } label: {
                         HStack {
                             Spacer()
                             Text("Contact")
@@ -83,19 +108,30 @@ struct UserDetailsView: View {
                 }
                 .font(.system(size: 12, weight: .semibold))
                 if let posts = user.posts {
-                    ForEach(posts, id: \.self) { post in
+                    ForEach(user.posts!, id: \.self) { post in
                         VStack(alignment: .leading) {
-                            Image(post.imageName)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(height: 200)
-                                .clipped()
+                            AsyncImage(
+                                url: URL(string: post.imageName),
+                                content: { image in
+                                    image.resizable()
+                                        .scaledToFill()
+                                        .clipped()
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                })
                             HStack(alignment: .top) {
-                                Image(user.profilImage)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 34)
-                                    .clipShape(Circle())
+                                AsyncImage(
+                                    url: URL(string: user.profilImage),
+                                    content: { image in
+                                        image.resizable()
+                                            .scaledToFit()
+                                            .frame(height: 34)
+                                            .clipShape(Circle())
+                                    },
+                                    placeholder: {
+                                        ProgressView()
+                                    })
                                 VStack(alignment: .leading) {
                                     Text(post.title)
                                         .font(.system(size: 14, weight: .semibold))
@@ -113,16 +149,24 @@ struct UserDetailsView: View {
                                 }
                             }
                             .padding(.horizontal, 8)
-
                             HStack {
                                 Button {
-                                    // action pour ajouter des likes
+                                    isLiked.toggle()
+                                    if isLiked == true {
+                                        Task {
+                                            try await vm.AddLike(userId: vm.user.id, postId: post.id)
+                                        }
+                                    } else {
+                                        Task {
+                                            try await vm.deleteLike(id: vm.user.id)
+                                        }
+                                    }
                                 } label: {
                                     Image(systemName: "hand.thumbsup.fill")
-                                        .foregroundColor(.cyan)
+                                        .foregroundColor(isLiked ? .cyan : .secondary)
                                         .font(.system(size: 12))
                                 }
-                                Text("102 likes")
+                                Text("\(post.likes?.count ?? 0)")
                                     .font(.system(size: 12, weight: .regular))
                                     .foregroundColor(.gray)
                             }
@@ -144,7 +188,7 @@ struct UserDetailsView: View {
 struct UserDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UserDetailsView(user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [Post(id: 0, title: "1st post", imageName: "eiffel_tower", hashtags: ["paradise", "lost"], userID: 0)], followers: []))
+            UserDetailsView(vm: UserViewModel(), user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [], follower: []))
         }
     }
 }

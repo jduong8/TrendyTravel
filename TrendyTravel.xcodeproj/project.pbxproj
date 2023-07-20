@@ -52,6 +52,16 @@
 		7539DE832A49BF4F0015FA4F /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7539DE822A49BF4F0015FA4F /* UserDetailsView.swift */; };
 		758A0E802A4D64EB008E22FC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E7F2A4D64EB008E22FC /* Post.swift */; };
 		758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */; };
+		7B895D3E2A6980A4002576B5 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D3D2A6980A4002576B5 /* Like.swift */; };
+		7B895D4E2A69821A002576B5 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D412A69821A002576B5 /* AuthenticationViewModel.swift */; };
+		7B895D4F2A69821A002576B5 /* AuthenticationType+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D432A69821A002576B5 /* AuthenticationType+Style.swift */; };
+		7B895D502A69821A002576B5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D442A69821A002576B5 /* LoginView.swift */; };
+		7B895D512A69821A002576B5 /* DefaultNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D462A69821A002576B5 /* DefaultNavigationLinkView.swift */; };
+		7B895D522A69821A002576B5 /* AuthenticationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D472A69821A002576B5 /* AuthenticationButtonView.swift */; };
+		7B895D532A69821A002576B5 /* AuthenticationButtonStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D482A69821A002576B5 /* AuthenticationButtonStyling.swift */; };
+		7B895D542A69821A002576B5 /* AuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D4A2A69821A002576B5 /* AuthenticationType.swift */; };
+		7B895D552A69821A002576B5 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D4B2A69821A002576B5 /* RegisterView.swift */; };
+		7B895D562A69821A002576B5 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B895D4D2A69821A002576B5 /* AuthenticationView.swift */; };
 		7BF7BB5A2A6812FA00FA9D41 /* ActivityDetailRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7BB592A6812FA00FA9D41 /* ActivityDetailRatingView.swift */; };
 		7BF7BB5C2A68199A00FA9D41 /* ActivityReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7BB5B2A68199A00FA9D41 /* ActivityReviewViewModel.swift */; };
 		7BF7BB5E2A68312D00FA9D41 /* CustomerReviewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7BB5D2A68312D00FA9D41 /* CustomerReviewsCard.swift */; };
@@ -125,6 +135,16 @@
 		7539DE822A49BF4F0015FA4F /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 		758A0E7F2A4D64EB008E22FC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
+		7B895D3D2A6980A4002576B5 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		7B895D412A69821A002576B5 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		7B895D432A69821A002576B5 /* AuthenticationType+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationType+Style.swift"; sourceTree = "<group>"; };
+		7B895D442A69821A002576B5 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7B895D462A69821A002576B5 /* DefaultNavigationLinkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNavigationLinkView.swift; sourceTree = "<group>"; };
+		7B895D472A69821A002576B5 /* AuthenticationButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationButtonView.swift; sourceTree = "<group>"; };
+		7B895D482A69821A002576B5 /* AuthenticationButtonStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationButtonStyling.swift; sourceTree = "<group>"; };
+		7B895D4A2A69821A002576B5 /* AuthenticationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationType.swift; sourceTree = "<group>"; };
+		7B895D4B2A69821A002576B5 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		7B895D4D2A69821A002576B5 /* AuthenticationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		7BF7BB592A6812FA00FA9D41 /* ActivityDetailRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailRatingView.swift; sourceTree = "<group>"; };
 		7BF7BB5B2A68199A00FA9D41 /* ActivityReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityReviewViewModel.swift; sourceTree = "<group>"; };
 		7BF7BB5D2A68312D00FA9D41 /* CustomerReviewsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerReviewsCard.swift; sourceTree = "<group>"; };
@@ -327,6 +347,7 @@
 				13F378AC2A65469400EE2A0A /* RestaurantDetail.swift */,
 				13F378A62A6545BB00EE2A0A /* Attraction.swift */,
 				DC0549062A66E49F00AFFE3C /* Follower.swift */,
+				7B895D3D2A6980A4002576B5 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				7539DE4F2A49948D0015FA4F /* DiscoverDestinationsView.swift */,
+				7B895D3F2A69821A002576B5 /* Authentication */,
 				13F378BC2A655FFD00EE2A0A /* Destination */,
 				13F378BE2A6561B600EE2A0A /* Category */,
 				13F378BF2A65629600EE2A0A /* Activity */,
@@ -342,6 +364,62 @@
 				13ED18D62A669C850005CFCE /* Shared */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7B895D3F2A69821A002576B5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7B895D402A69821A002576B5 /* ViewModel */,
+				7B895D422A69821A002576B5 /* Extension */,
+				7B895D442A69821A002576B5 /* LoginView.swift */,
+				7B895D452A69821A002576B5 /* Component */,
+				7B895D492A69821A002576B5 /* Model */,
+				7B895D4B2A69821A002576B5 /* RegisterView.swift */,
+				7B895D4C2A69821A002576B5 /* Main */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		7B895D402A69821A002576B5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B895D412A69821A002576B5 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B895D422A69821A002576B5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7B895D432A69821A002576B5 /* AuthenticationType+Style.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7B895D452A69821A002576B5 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				7B895D462A69821A002576B5 /* DefaultNavigationLinkView.swift */,
+				7B895D472A69821A002576B5 /* AuthenticationButtonView.swift */,
+				7B895D482A69821A002576B5 /* AuthenticationButtonStyling.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		7B895D492A69821A002576B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B895D4A2A69821A002576B5 /* AuthenticationType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B895D4C2A69821A002576B5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7B895D4D2A69821A002576B5 /* AuthenticationView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		7BF7BB582A6812BD00FA9D41 /* Component */ = {
@@ -490,6 +568,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F378B32A6546E700EE2A0A /* ActivityDetailViewModel.swift in Sources */,
+				7B895D542A69821A002576B5 /* AuthenticationType.swift in Sources */,
+				7B895D552A69821A002576B5 /* RegisterView.swift in Sources */,
 				10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */,
 				13F378A32A65455500EE2A0A /* DestinationViewModel.swift in Sources */,
 				13F378962A65437500EE2A0A /* Activity.swift in Sources */,
@@ -497,6 +577,8 @@
 				7539DE5F2A499BE60015FA4F /* CarouselHeaderView.swift in Sources */,
 				13F3789D2A65444500EE2A0A /* CategoryDetailErrorView.swift in Sources */,
 				7539DE562A4996F40015FA4F /* CategoriesIconsView.swift in Sources */,
+				7B895D4E2A69821A002576B5 /* AuthenticationViewModel.swift in Sources */,
+				7B895D512A69821A002576B5 /* DefaultNavigationLinkView.swift in Sources */,
 				758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */,
 				7539DE542A4995EA0015FA4F /* CategoriesView.swift in Sources */,
 				10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */,
@@ -511,15 +593,21 @@
 				7539DE5D2A4999A50015FA4F /* PopularDestinationsView.swift in Sources */,
 				13F378A12A65452000EE2A0A /* PopularDestinationTile.swift in Sources */,
 				13ED18DA2A669D2D0005CFCE /* CategoryCardFooterView.swift in Sources */,
+				7B895D522A69821A002576B5 /* AuthenticationButtonView.swift in Sources */,
 				13F378992A6543BA00EE2A0A /* ActivityViewModel.swift in Sources */,
 				13F3789F2A65445700EE2A0A /* CategoryDetailCardView.swift in Sources */,
+				7B895D3E2A6980A4002576B5 /* Like.swift in Sources */,
 				DC0549072A66E49F00AFFE3C /* Follower.swift in Sources */,
 				13F378B72A65473C00EE2A0A /* DiscoverUserView.swift in Sources */,
+				7B895D562A69821A002576B5 /* AuthenticationView.swift in Sources */,
 				13ED18D52A669C0B0005CFCE /* CategoryCardHeaderView.swift in Sources */,
 				7539DE7B2A49B4DC0015FA4F /* PopularActivitiesView.swift in Sources */,
+				7B895D502A69821A002576B5 /* LoginView.swift in Sources */,
 				7539DE502A49948D0015FA4F /* DiscoverDestinationsView.swift in Sources */,
 				13F3789B2A6543F500EE2A0A /* CategoryDetailLoadingView.swift in Sources */,
+				7B895D4F2A69821A002576B5 /* AuthenticationType+Style.swift in Sources */,
 				13F378BB2A6547B500EE2A0A /* CarouselCustomBackground.swift in Sources */,
+				7B895D532A69821A002576B5 /* AuthenticationButtonStyling.swift in Sources */,
 				13F378922A65434700EE2A0A /* Category.swift in Sources */,
 				13F378AB2A65462500EE2A0A /* ActivityTile.swift in Sources */,
 				DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */,
