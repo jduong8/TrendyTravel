@@ -166,7 +166,7 @@ struct UserDetailsView: View {
                                         .foregroundColor(isLiked ? .cyan : .secondary)
                                         .font(.system(size: 12))
                                 }
-                                Text("102 likes")
+                                Text("\(post.likes?.count ?? 0)")
                                     .font(.system(size: 12, weight: .regular))
                                     .foregroundColor(.gray)
                             }
@@ -188,7 +188,7 @@ struct UserDetailsView: View {
 struct UserDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UserDetailsView(vm: UserViewModel(), user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [Post(id: 0, title: "1st post", imageName: "eiffel_tower", hashtags: ["paradise", "lost"], userID: 0)], follower: []))
+            UserDetailsView(vm: UserViewModel(), user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [], follower: []))
         }
     }
 }
