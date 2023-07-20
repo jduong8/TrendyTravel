@@ -107,7 +107,7 @@ struct UserDetailsView: View {
                     }
                 }
                 .font(.system(size: 12, weight: .semibold))
-                if (user.posts != nil) {
+                if let posts = user.posts {
                     ForEach(user.posts!, id: \.self) { post in
                         VStack(alignment: .leading) {
                             AsyncImage(
@@ -172,7 +172,6 @@ struct UserDetailsView: View {
                             }
                             .padding(.horizontal)
                             .padding(.bottom, 6)
-                            Spacer()
                         }
                         .background(Color(white: 1))
                         .cornerRadius(12)

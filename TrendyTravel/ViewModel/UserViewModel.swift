@@ -31,7 +31,7 @@ enum ErrorMessage: Error {
 
 @MainActor class UserViewModel: ObservableObject {
     @Published var users: [User] = []
-    @Published var user: User = User(id: 1, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [Post(id: 0, title: "1st post", imageName: "eiffel_tower", hashtags: ["paradise", "lost"], userID: 0)], follower: [])
+    @Published var user: User = .initial
     @Published var followers: [Follower] = []
     @Published var follower: Follower = .init(id: 1, followerID: 1, followedID: 1)
     @Published var like: Like = .init(id: 1, postID: 1, userID: 1)

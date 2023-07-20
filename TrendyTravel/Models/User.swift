@@ -23,4 +23,6 @@ struct User: Codable, Hashable {
         case follower = "Followers"
 
     }
+    
+    static let initial = User(id: 0, firstName: "", lastName: "", description: "", profilImage: "", pseudo: "", password: "", email: "", posts: [Post(id: 0, title: "", imageName: "", hashtags: [], userID: 0)], follower: [])
 }
