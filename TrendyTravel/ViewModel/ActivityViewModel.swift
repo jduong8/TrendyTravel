@@ -15,7 +15,7 @@ class ActivityViewModel: ObservableObject {
     let api = NetworkManager()
     let urlString = "https://trendytravel.onrender.com/activities"
     
-    func getActivities(from category: Category) async {
+    func getActivities(from category: Category) async throws {
         do {
             let fetchedActivities: [Activity] = try await api.fetch(from: urlString)
             DispatchQueue.main.async {

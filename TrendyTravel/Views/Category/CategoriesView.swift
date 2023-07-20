@@ -19,7 +19,7 @@ struct CategoriesView: View {
                         ActivitiesListView(activityVM: activityVM)
                             .onAppear {
                                 Task {
-                                    await self.activityVM.getActivities(from: category)
+                                   try await self.activityVM.getActivities(from: category)
                                 }
                             }
                     } label: {

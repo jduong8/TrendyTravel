@@ -1,5 +1,5 @@
 //
-//  PopularDestinationsDetailsView.swift
+//  DestinationDetailView.swift
 //  TrendyTravel
 //
 //  Created by Jonathan Duong on 17/07/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct PopularDestinationsDetailsView: View {
+struct DestinationDetailView: View {
     @ObservedObject var vm: DestinationViewModel
     let destination: Destination
     @State var region: MKCoordinateRegion
@@ -22,12 +22,13 @@ struct PopularDestinationsDetailsView: View {
     
     func activityImages(destination: Destination) -> [String] {
         var images: [String] = []
-        for activity in attractions {
+        guard let activities = destination.activities else { return [] }
+        for activity in activities {
             images.append(activity.imageName)
         }
         return images
     }
-    
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             CarouselHeaderView(images: activityImages(destination: destination))
@@ -61,24 +62,25 @@ struct PopularDestinationsDetailsView: View {
                     .labelsHidden()
             }
             .padding()
-            Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? attractions : []) { attraction in
-                MapAnnotation(coordinate: .init(latitude: attraction.latitude, longitude: attraction.longitude)) {
-                    CustomMapAnnotation(attraction: attraction)
+            if let activities = self.destination.activities {
+                Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? activities : []) { activity in
+                    MapAnnotation(coordinate: .init(latitude: activity.latitude, longitude: activity.longitude)) {
+                        NavigationLink {
+                            ActivityDetailsView(activity: activity)
+                        } label: {
+                            CustomMapAnnotation(activity: activity)
+                        }
+                    }
                 }
+                .frame(height: 300)
             }
-            .frame(height: 300)
         }
         .navigationBarTitle(destination.city, displayMode: .inline)
     }
-    let attractions: [Attraction] = [
-        .init(name: "eiffel tower", imageName: "eiffel_tower", latitude: 48.858605, longitude: 2.2946),
-        .init(name: "Champs-Elysees", imageName: "new_york", latitude: 48.866867, longitude: 2.311780),
-        .init(name: "Louvre Museum", imageName: "art2", latitude: 48.860288, longitude: 2.337789)
-    ]
 }
 
 struct PopularDestinationsDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        PopularDestinationsDetailsView(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0))
+        DestinationDetailView(destination: .init(id: 0, country: "", city: "", imageName: "", latitude: 0.0, longitude: 0.0, activities: []))
     }
 }

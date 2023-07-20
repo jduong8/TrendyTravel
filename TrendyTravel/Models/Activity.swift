@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Activity: Codable, Hashable {
+struct Activity: Codable, Hashable, Identifiable {
     var id: Int
     var category, name, imageName: String
     var link: String
@@ -15,7 +15,7 @@ struct Activity: Codable, Hashable {
     var latitude, longitude: Double
     var description: String
     var rating, destinationId: Int
-    var destination: Destination
+    var destination: Destination?
     
     enum CodingKeys: String, CodingKey {
         case id, category, name, imageName, link, price, latitude, longitude, description, rating, destinationId
