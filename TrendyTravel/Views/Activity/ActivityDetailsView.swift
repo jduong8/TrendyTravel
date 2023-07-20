@@ -10,7 +10,6 @@ import SwiftUI
 struct ActivityDetailsView: View {
     let activity: Activity
     @StateObject private var reviewViewModel = ActivityReviewViewModel()
-    @StateObject private var userViewModel = UserViewModel()
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomLeading) {
@@ -45,7 +44,7 @@ struct ActivityDetailsView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Location & Description")
                     .font(.system(size: 16, weight: .bold))
-                Text("\(activity.destination.city.capitalized), \(activity.destination.country.capitalized)")
+                Text("\(activity.destination?.city.capitalized ?? "Unknown City"), \(activity.destination?.country.capitalized ?? "Unknown Country")")
                 HStack {
                     Text(activity.price)
                 }
@@ -66,15 +65,6 @@ struct ActivityDetailsView: View {
             }
         }
         .navigationBarTitle("Activity Details", displayMode: .inline)
-        .onAppear {
-            Task {
-                do {
-                    reviewViewModel.review = try await reviewViewModel.getReviews()
-                } catch {
-                    print("Error fetching reviews: \(error)")
-                }
-            }
-        }
     }
 }
 

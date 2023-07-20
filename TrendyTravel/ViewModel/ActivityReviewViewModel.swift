@@ -15,7 +15,15 @@ class ActivityReviewViewModel: ObservableObject {
     let baseURLReviews = "https://trendytravel.onrender.com/reviews"
     let network = NetworkManager()
 
-    func getReviews() async throws -> [Review] {
-        return try await network.fetch(from: baseURLReviews)
+    func getReviews(from activity: Activity, from user: User) async throws {
+        do {
+            let reviews: [Review] = try await network.fetch(from: baseURLReviews)
+            self.review = reviews.filter {
+                $0.activity == activity &&
+                $0.user == user
+            }
+        } catch {
+            print(error)
+        }
     }
 }
