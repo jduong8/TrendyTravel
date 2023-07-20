@@ -65,7 +65,11 @@ struct DestinationDetailView: View {
             if let activities = self.destination.activities {
                 Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? activities : []) { activity in
                     MapAnnotation(coordinate: .init(latitude: activity.latitude, longitude: activity.longitude)) {
-                        CustomMapAnnotation(activity: activity)
+                        NavigationLink {
+                            ActivityDetailsView(activity: activity)
+                        } label: {
+                            CustomMapAnnotation(activity: activity)
+                        }
                     }
                 }
                 .frame(height: 300)
