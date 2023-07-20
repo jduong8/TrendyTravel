@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1082DBE32A667D4E006870CE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1082DBE22A667D4E006870CE /* NetworkManager */; };
 		10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */; };
+		10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE8B482A680A4700705B9C /* SearchForDestinationView.swift */; };
+		10FE8B4B2A682C1B00705B9C /* DestinationTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE8B4A2A682C1B00705B9C /* DestinationTileView.swift */; };
 		13ED18D52A669C0B0005CFCE /* CategoryCardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */; };
 		13ED18D82A669C980005CFCE /* RoundedCornder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D72A669C980005CFCE /* RoundedCornder.swift */; };
 		13ED18DA2A669D2D0005CFCE /* CategoryCardFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */; };
@@ -74,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDestinationsView.swift; sourceTree = "<group>"; };
+		10FE8B482A680A4700705B9C /* SearchForDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForDestinationView.swift; sourceTree = "<group>"; };
+		10FE8B4A2A682C1B00705B9C /* DestinationTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTileView.swift; sourceTree = "<group>"; };
 		13ED18D42A669C0B0005CFCE /* CategoryCardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardHeaderView.swift; sourceTree = "<group>"; };
 		13ED18D72A669C980005CFCE /* RoundedCornder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornder.swift; sourceTree = "<group>"; };
 		13ED18D92A669D2D0005CFCE /* CategoryCardFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardFooterView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,8 @@
 		13F378BC2A655FFD00EE2A0A /* Destination */ = {
 			isa = PBXGroup;
 			children = (
+				10FE8B482A680A4700705B9C /* SearchForDestinationView.swift */,
+				10FE8B4A2A682C1B00705B9C /* DestinationTileView.swift */,
 				7539DE5C2A4999A50015FA4F /* PopularDestinationsView.swift */,
 				10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */,
 				13F378A42A65458100EE2A0A /* PopularDestinationsDetailsView.swift */,
@@ -470,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F378B32A6546E700EE2A0A /* ActivityDetailViewModel.swift in Sources */,
+				10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */,
 				13F378A32A65455500EE2A0A /* DestinationViewModel.swift in Sources */,
 				13F378962A65437500EE2A0A /* Activity.swift in Sources */,
 				13F378A72A6545BB00EE2A0A /* Attraction.swift in Sources */,
@@ -509,6 +516,7 @@
 				13F378B92A65479C00EE2A0A /* UserViewModel.swift in Sources */,
 				13F378A92A6545D500EE2A0A /* CustomMapAnnotation.swift in Sources */,
 				7539DE262A4994650015FA4F /* TrendyTravelApp.swift in Sources */,
+				10FE8B4B2A682C1B00705B9C /* DestinationTileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
