@@ -428,8 +428,8 @@
 		7BF7BB582A6812BD00FA9D41 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				7BF7BB592A6812FA00FA9D41 /* ActivityDetailRatingView.swift */,
 				7BF7BB5D2A68312D00FA9D41 /* CustomerReviewsCard.swift */,
+				7BF7BB592A6812FA00FA9D41 /* ActivityDetailRatingView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
