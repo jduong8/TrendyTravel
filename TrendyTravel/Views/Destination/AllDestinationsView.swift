@@ -15,7 +15,7 @@ struct AllDestinationsView: View {
            VStack{
                 ForEach(viewModel.destinations, id: \.self) { destination in
                     NavigationLink {
-                        PopularDestinationsDetailsView(destination: destination)
+                        DestinationDetailView(destination: destination)
                     } label: {
                         DestinationTileView(destination: destination)
                     }
