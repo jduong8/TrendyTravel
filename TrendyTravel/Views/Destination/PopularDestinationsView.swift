@@ -31,7 +31,7 @@ struct PopularDestinationsView: View {
                 HStack(spacing: 8) {
                     ForEach(viewModel.destinations, id: \.self) { destination in
                         NavigationLink {
-                            PopularDestinationsDetailsView(destination: destination)
+                            DestinationDetailView(destination: destination)
                         } label: {
                             PopularDestinationTile(destination: destination)
                                 .padding(.bottom)
@@ -47,7 +47,7 @@ struct PopularDestinationsView: View {
 struct PopularDestinationsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PopularDestinationsDetailsView(destination: .init(id: 1, country: "France", city: "Paris", imageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235, activities: []))
+            DestinationDetailView(destination: .init(id: 1, country: "France", city: "Paris", imageName: "eiffel_tower", latitude: 48.859565, longitude: 2.353235, activities: []))
         }
     }
 }
