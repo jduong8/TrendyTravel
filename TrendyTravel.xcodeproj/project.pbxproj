@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1082DBE32A667D4E006870CE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1082DBE22A667D4E006870CE /* NetworkManager */; };
+		108DE06C2A6971980086E3C5 /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DE06B2A6971980086E3C5 /* AddReviewView.swift */; };
 		10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */; };
 		10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE8B482A680A4700705B9C /* SearchForDestinationView.swift */; };
 		10FE8B4B2A682C1B00705B9C /* DestinationTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE8B4A2A682C1B00705B9C /* DestinationTileView.swift */; };
@@ -87,6 +88,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		108DE06B2A6971980086E3C5 /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDestinationsView.swift; sourceTree = "<group>"; };
 		10FE8B482A680A4700705B9C /* SearchForDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForDestinationView.swift; sourceTree = "<group>"; };
 		10FE8B4A2A682C1B00705B9C /* DestinationTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTileView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */,
+				108DE06B2A6971980086E3C5 /* AddReviewView.swift */,
 				13F378AA2A65462500EE2A0A /* ActivityTile.swift */,
 				7539DE7A2A49B4DC0015FA4F /* PopularActivitiesView.swift */,
 				7BF7BB582A6812BD00FA9D41 /* Component */,
@@ -605,6 +608,7 @@
 				13F378BB2A6547B500EE2A0A /* CarouselCustomBackground.swift in Sources */,
 				13F378922A65434700EE2A0A /* Category.swift in Sources */,
 				13F378AB2A65462500EE2A0A /* ActivityTile.swift in Sources */,
+				108DE06C2A6971980086E3C5 /* AddReviewView.swift in Sources */,
 				13F378B52A65470A00EE2A0A /* ActivityReviewList.swift in Sources */,
 				F4E23F572A680C4100F55624 /* AuthenticationView.swift in Sources */,
 				DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */,
