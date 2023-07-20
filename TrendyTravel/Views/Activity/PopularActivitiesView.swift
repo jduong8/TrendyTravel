@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct PopularActivitiesView: View {
-    @EnvironmentObject var activity: ActivityDetailViewModel
+
+    @StateObject var activityDetailViewModel = ActivityDetailViewModel()
+
     var body: some View {
         VStack {
             HStack {
@@ -20,16 +22,16 @@ struct PopularActivitiesView: View {
             }
             .onAppear {
                 Task {
-                    activity.activity = try await activity.getActivities()
+                    activityDetailViewModel.activities = try await activityDetailViewModel.getActivities()
                 }
             }
             .padding(.horizontal)
             .padding(.top)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    ForEach(activity.activity, id: \.self) { activity in
+                    ForEach(activityDetailViewModel.activities, id: \.self) { activity in
                         NavigationLink {
-                            ActivityDetailsView(activity: activity)
+                            ActivityDetailsView(selectedActivity: activity)
                         } label: {
                             ActivityTile(activity: activity)
                                 .foregroundColor(Color(.label))

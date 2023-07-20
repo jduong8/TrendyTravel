@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ActivityReviewsView: View {
+
     @ObservedObject var reviewViewModel: ActivityReviewViewModel
     
     var body: some View {
@@ -20,7 +21,9 @@ struct ActivityReviewsView: View {
                     StarRatingView(rating: review.rating)
                         .foregroundColor(.orange)
                     Text("\(review.content)")
-                    Text("\(review.user.firstName)")
+                    if let user = review.user {
+                        Text("\(user.firstName) \(user.lastName)")
+                    }
                 }
                 .padding()
                 .background(Color.white.opacity(0.1))
@@ -29,11 +32,6 @@ struct ActivityReviewsView: View {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.gray.opacity(0.5), lineWidth: 1)
                 )
-                .onAppear {
-                    Task {
-                        try await reviewViewModel.getReviews(from: review.activity, from: review.user)
-                    }
-                }
             }
         }
         .padding(.horizontal)

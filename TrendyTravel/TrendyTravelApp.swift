@@ -11,14 +11,12 @@ import SwiftUI
 struct TrendyTravelApp: App {
     @StateObject var userVm = UserViewModel()
     @StateObject var activityVM = ActivityDetailViewModel()
-    @StateObject var destinationViewModel = DestinationViewModel()
 
     var body: some Scene {
         WindowGroup {
-            DiscoverDestinationsView(destinationViewModel: destinationViewModel)
+            DiscoverDestinationsView()
                 .environmentObject(userVm)
                 .environmentObject(activityVM)
-                .environmentObject(destinationViewModel)
         }
     }
 }

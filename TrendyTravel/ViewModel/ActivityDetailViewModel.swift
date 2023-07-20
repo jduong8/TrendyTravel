@@ -9,7 +9,7 @@ import Foundation
 import NetworkManager
 
 class ActivityDetailViewModel: ObservableObject {
-    @Published var activity: [Activity] = []
+    @Published var activities: [Activity] = []
     
     
     let baseURLActivities = "https://trendytravel.onrender.com/activities"
@@ -18,5 +18,4 @@ class ActivityDetailViewModel: ObservableObject {
     func getActivities() async throws -> [Activity] {
         return try await network.fetch(from: baseURLActivities)
     }
-    
 }

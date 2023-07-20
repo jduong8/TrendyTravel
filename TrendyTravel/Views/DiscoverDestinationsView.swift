@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DiscoverDestinationsView: View {
-    @ObservedObject var destinationViewModel: DestinationViewModel
+    @StateObject var destinationViewModel = DestinationViewModel()
     
     var body: some View {
         NavigationView {
@@ -29,17 +29,14 @@ struct DiscoverDestinationsView: View {
 }
 
 struct DestinationsListView_Previews: PreviewProvider {
-    //    @EnvironmentObject var userVm = UserViewModel()
     static var previews: some View {
-        DiscoverDestinationsView(destinationViewModel: DestinationViewModel())
+        DiscoverDestinationsView()
             .colorScheme(.light)
             .environmentObject(UserViewModel())
-            .environmentObject(DestinationViewModel())
             .environmentObject(ActivityViewModel())
-        DiscoverDestinationsView(destinationViewModel: DestinationViewModel())
+        DiscoverDestinationsView()
             .colorScheme(.dark)
             .environmentObject(UserViewModel())
-            .environmentObject(DestinationViewModel())
             .environmentObject(ActivityViewModel())
     }
 }
