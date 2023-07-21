@@ -17,8 +17,11 @@ struct PopularActivitiesView: View {
                 Text("Popular Activities")
                     .font(.system(size: 14, weight: .semibold))
                 Spacer()
-                Text("See all")
-                    .font(.system(size: 12, weight: .semibold))
+                
+                NavigationLink(destination: AllPopularActivitiesView().environmentObject(activityDetailViewModel)) {
+                    Text("See all")
+                        .font(.system(size: 12, weight: .semibold))
+                }
             }
             .onAppear {
                 Task {
