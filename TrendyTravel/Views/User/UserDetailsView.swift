@@ -77,8 +77,8 @@ struct UserDetailsView: View {
                     }
                 }
                 .font(.system(size: 12, weight: .semibold))
-                if user.posts != nil {
-                    ForEach(user.posts!, id: \.self) { post in
+                if let posts = user.posts {
+                    ForEach(posts, id: \.self) { post in
                         VStack(alignment: .leading) {
                             PostDescriptionView(user: user, post: post)
                             HStack {
