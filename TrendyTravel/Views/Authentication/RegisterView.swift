@@ -6,19 +6,30 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct RegisterView: View {
 
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var authenticationVM: AuthenticationViewModel
     @State private var isSecured: Bool = false
+    @State private var image: UIImage? = nil
+    @State private var shouldNavigate: Bool = false
 
     var body: some View {
         VStack(alignment: .center) {
             Form {
+                randomImage()
+                    .listRowBackground(Color.clear)
+                    .frame(maxWidth: .infinity)
                 personalInformationForm(user: $authenticationVM.user)
                 passwordForm(user: $authenticationVM.user)
                 descriptionForm(user: $authenticationVM.user)
                 AuthenticationButtonView(.register) {
+                    Task {
+                        _ = try await authenticationVM.addUser(user: authenticationVM.user)
+                    }
+                    dismiss()
                 }
                 .disabled(authenticationVM.disabledCreateButton())
                 .opacity(authenticationVM.opacityCreateButton())
@@ -44,6 +55,32 @@ struct RegisterView_Previews: PreviewProvider {
 }
 
 extension RegisterView {
+    func randomImage() -> some View {
+        // Replace your AsyncImage with this
+        Image(uiImage: self.image ?? UIImage())
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .clipShape(Circle())
+            .frame(width: 200, height: 200, alignment: .center)
+            .overlay(
+                Button {
+                    Task {
+                        do {
+                            self.image = try await self.authenticationVM.loadImage()
+                        } catch {
+                            print("Failed to load image: \(error)")
+                        }
+                    }
+                } label: {
+                    Image(systemName: "shuffle.circle.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.cyan)
+                }
+                    .buttonStyle(.borderless),
+                alignment: .bottomTrailing
+            )
+    }
     func personalInformationForm(user: Binding<User>) -> some View {
         Section {
             TextField("Username", text: user.pseudo)
