@@ -60,15 +60,15 @@ struct ProfilUserView: View {
             NavigationLink(destination: AuthenticationView(authenticationVM: authenticationVM), isActive: $isLogOut) {
                 EmptyView()
             }
-//            NavigationLink(destination: , isActive: $isModify) {
-//                EmptyView()
-//            }
+            NavigationLink(destination: ModifyUserView(authenticationVM: authenticationVM, vm: vm), isActive: $isModify) {
+                EmptyView()
+            }
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button {
-                        
+                        isModify = true
                     } label: {
                         HStack {
                             Text("Modify Profil")
