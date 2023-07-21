@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1082DBE32A667D4E006870CE /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1082DBE22A667D4E006870CE /* NetworkManager */; };
+		108DE06C2A6971980086E3C5 /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DE06B2A6971980086E3C5 /* AddReviewView.swift */; };
+		10BD97E82A6A7FF400106678 /* ShowAddReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BD97E72A6A7FF400106678 /* ShowAddReview.swift */; };
+		10BD97E92A6ABB3900106678 /* ActivityReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7BB5B2A68199A00FA9D41 /* ActivityReviewViewModel.swift */; };
+		10BD97EA2A6ABB4900106678 /* DestinationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A42A65458100EE2A0A /* DestinationDetailView.swift */; };
 		10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */; };
 		10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE8B482A680A4700705B9C /* SearchForDestinationView.swift */; };
 		10FE8B4B2A682C1B00705B9C /* DestinationTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FE8B4A2A682C1B00705B9C /* DestinationTileView.swift */; };
@@ -52,7 +56,6 @@
 		758A0E802A4D64EB008E22FC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E7F2A4D64EB008E22FC /* Post.swift */; };
 		758A0E9E2A4DA6F6008E22FC /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */; };
 		7BF7BB5A2A6812FA00FA9D41 /* ActivityDetailRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7BB592A6812FA00FA9D41 /* ActivityDetailRatingView.swift */; };
-		7BF7BB5C2A68199A00FA9D41 /* ActivityReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7BB5B2A68199A00FA9D41 /* ActivityReviewViewModel.swift */; };
 		7BF7BB5E2A68312D00FA9D41 /* CustomerReviewsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF7BB5D2A68312D00FA9D41 /* CustomerReviewsCard.swift */; };
 		DC0549072A66E49F00AFFE3C /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0549062A66E49F00AFFE3C /* Follower.swift */; };
 		DC1CB5622A68253200528701 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1CB5612A68253200528701 /* Like.swift */; };
@@ -90,6 +93,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		108DE06B2A6971980086E3C5 /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
+		10BD97E72A6A7FF400106678 /* ShowAddReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAddReview.swift; sourceTree = "<group>"; };
 		10BE58DD2A66BA7200256261 /* AllDestinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDestinationsView.swift; sourceTree = "<group>"; };
 		10FE8B482A680A4700705B9C /* SearchForDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchForDestinationView.swift; sourceTree = "<group>"; };
 		10FE8B4A2A682C1B00705B9C /* DestinationTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTileView.swift; sourceTree = "<group>"; };
@@ -232,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */,
+				10BD97E72A6A7FF400106678 /* ShowAddReview.swift */,
+				108DE06B2A6971980086E3C5 /* AddReviewView.swift */,
 				13F378AA2A65462500EE2A0A /* ActivityTile.swift */,
 				7539DE7A2A49B4DC0015FA4F /* PopularActivitiesView.swift */,
 				7BF7BB582A6812BD00FA9D41 /* Component */,
@@ -576,13 +583,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F0C1FB2A6A7C2E00CBA9E6 /* DestinationDetailView.swift in Sources */,
+				10BD97EA2A6ABB4900106678 /* DestinationDetailView.swift in Sources */,
+				10BD97E92A6ABB3900106678 /* ActivityReviewViewModel.swift in Sources */,
 				F4F0C2062A6A885A00CBA9E6 /* PostDescriptionView.swift in Sources */,
 				13F378B32A6546E700EE2A0A /* ActivityDetailViewModel.swift in Sources */,
 				10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */,
 				F4F0C2072A6A885A00CBA9E6 /* MailView.swift in Sources */,
 				13F378A32A65455500EE2A0A /* DestinationViewModel.swift in Sources */,
 				F4E23F5E2A68109900F55624 /* AuthenticationButtonStyling.swift in Sources */,
+				10BD97E82A6A7FF400106678 /* ShowAddReview.swift in Sources */,
 				13F378962A65437500EE2A0A /* Activity.swift in Sources */,
 				F4E23F542A680C1500F55624 /* RegisterView.swift in Sources */,
 				13F378A72A6545BB00EE2A0A /* Attraction.swift in Sources */,
@@ -594,7 +603,6 @@
 				10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */,
 				13ED18D82A669C980005CFCE /* RoundedCornder.swift in Sources */,
 				13F378942A65435E00EE2A0A /* Restaurant.swift in Sources */,
-				7BF7BB5C2A68199A00FA9D41 /* ActivityReviewViewModel.swift in Sources */,
 				7539DE7F2A49B7EB0015FA4F /* TrendingCreatorsView.swift in Sources */,
 				7539DE832A49BF4F0015FA4F /* UserDetailsView.swift in Sources */,
 				758A0E802A4D64EB008E22FC /* Post.swift in Sources */,
@@ -616,6 +624,7 @@
 				13F378BB2A6547B500EE2A0A /* CarouselCustomBackground.swift in Sources */,
 				13F378922A65434700EE2A0A /* Category.swift in Sources */,
 				13F378AB2A65462500EE2A0A /* ActivityTile.swift in Sources */,
+				108DE06C2A6971980086E3C5 /* AddReviewView.swift in Sources */,
 				F4E23F572A680C4100F55624 /* AuthenticationView.swift in Sources */,
 				DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */,
 				13F378AF2A6546B900EE2A0A /* Review.swift in Sources */,
