@@ -62,6 +62,43 @@ enum ErrorMessage: Error {
         return followers
     }
     
+    func updateUser(userUpdate: User) async throws -> User {
+        guard let url = URL(string: "\(baseURLUser)\(user.id)")
+        else {
+            throw ErrorMessage.badURL
+        }
+        var urlRequest = URLRequest(url: url)
+        let parameters: [String : Any] = [
+            "id" : user.id,
+            "first_Name": userUpdate.firstName,
+            "lastName": userUpdate.lastName,
+            "description": userUpdate.description,
+            "pseudo": userUpdate.pseudo,
+            "password": userUpdate.password,
+            "email": userUpdate.email
+        ]
+        urlRequest.httpMethod = "PUT"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+        
+        guard (response as? HTTPURLResponse)?.statusCode == 200
+        else {
+            throw ErrorMessage.badResponse
+        }
+        
+        let decoder = JSONDecoder()
+        do {
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            user = try decoder.decode(User.self, from: data)
+            print("success update: \(user)")
+            return user
+        } catch {
+            throw URLError(.badServerResponse)
+        }
+    }
+    
     func AddFollower(followerId: Int, followedId: Int) async throws -> Follower {
         print("1")
         //url
