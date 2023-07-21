@@ -50,7 +50,7 @@ struct UserDetailsView: View {
                 
                 HStack(spacing: 12) {
                     VStack {
-                        Text("\(user.follower?.count ?? 0)")
+                        Text("\(user.followers?.count ?? 0)")
                             .font(.system(size: 13, weight: .semibold))
                         Text("Followers")
                             .font(.system(size: 9, weight: .regular))
@@ -189,7 +189,7 @@ struct UserDetailsView: View {
 struct UserDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UserDetailsView(vm: UserViewModel(), user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [], follower: []))
+            UserDetailsView(vm: UserViewModel(), user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [], followers: []))
         }
     }
 }
