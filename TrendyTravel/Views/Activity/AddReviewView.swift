@@ -17,7 +17,7 @@ struct AddReviewView: View {
                 .font(.title3)
                 .foregroundColor(.secondary)
             
-            StarRatingView(rating: $userRating)
+            StarRatingButtonView(rating: $userRating)
             //                Text("Your rating: \(userRating) stars")
             
             TextField(
@@ -50,7 +50,7 @@ struct AddReviewView_Previews: PreviewProvider {
 }
 
 
-struct StarRatingView: View {
+struct StarRatingButtonView: View {
     @Binding var rating: Int
     
     var body: some View {
