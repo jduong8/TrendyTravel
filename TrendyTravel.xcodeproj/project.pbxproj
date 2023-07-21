@@ -23,7 +23,6 @@
 		13F3789F2A65445700EE2A0A /* CategoryDetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F3789E2A65445700EE2A0A /* CategoryDetailCardView.swift */; };
 		13F378A12A65452000EE2A0A /* PopularDestinationTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A02A65452000EE2A0A /* PopularDestinationTile.swift */; };
 		13F378A32A65455500EE2A0A /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A22A65455500EE2A0A /* DestinationViewModel.swift */; };
-		13F378A52A65458100EE2A0A /* DestinationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A42A65458100EE2A0A /* DestinationDetailView.swift */; };
 		13F378A72A6545BB00EE2A0A /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A62A6545BB00EE2A0A /* Attraction.swift */; };
 		13F378A92A6545D500EE2A0A /* CustomMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A82A6545D500EE2A0A /* CustomMapAnnotation.swift */; };
 		13F378AB2A65462500EE2A0A /* ActivityTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378AA2A65462500EE2A0A /* ActivityTile.swift */; };
@@ -67,6 +66,7 @@
 		F4E23F612A68161F00F55624 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E23F602A68161F00F55624 /* AuthenticationViewModel.swift */; };
 		F4E23F642A68234D00F55624 /* DefaultNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E23F632A68234D00F55624 /* DefaultNavigationLinkView.swift */; };
 		F4E23F672A6824E900F55624 /* AuthenticationType+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E23F662A6824E900F55624 /* AuthenticationType+Style.swift */; };
+		F4F0C1FB2A6A7C2E00CBA9E6 /* DestinationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A42A65458100EE2A0A /* DestinationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -366,6 +366,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		7BF7BB582A6812BD00FA9D41 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				7BF7BB5D2A68312D00FA9D41 /* CustomerReviewsCard.swift */,
+				7BF7BB592A6812FA00FA9D41 /* ActivityDetailRatingView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		F4E23F4F2A68088400F55624 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,15 +429,6 @@
 				F4E23F662A6824E900F55624 /* AuthenticationType+Style.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		7BF7BB582A6812BD00FA9D41 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				7BF7BB5D2A68312D00FA9D41 /* CustomerReviewsCard.swift */,
-				7BF7BB592A6812FA00FA9D41 /* ActivityDetailRatingView.swift */,
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4F0C1FB2A6A7C2E00CBA9E6 /* DestinationDetailView.swift in Sources */,
 				13F378B32A6546E700EE2A0A /* ActivityDetailViewModel.swift in Sources */,
 				10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */,
 				13F378A32A65455500EE2A0A /* DestinationViewModel.swift in Sources */,
@@ -582,9 +583,7 @@
 				10BE58DE2A66BA7200256261 /* AllDestinationsView.swift in Sources */,
 				13ED18D82A669C980005CFCE /* RoundedCornder.swift in Sources */,
 				13F378942A65435E00EE2A0A /* Restaurant.swift in Sources */,
-				13F378A52A65458100EE2A0A /* DestinationDetailView.swift in Sources */,
 				7BF7BB5C2A68199A00FA9D41 /* ActivityReviewViewModel.swift in Sources */,
-				13F378A52A65458100EE2A0A /* PopularDestinationsDetailsView.swift in Sources */,
 				7539DE7F2A49B7EB0015FA4F /* TrendingCreatorsView.swift in Sources */,
 				7539DE832A49BF4F0015FA4F /* UserDetailsView.swift in Sources */,
 				758A0E802A4D64EB008E22FC /* Post.swift in Sources */,
@@ -605,7 +604,6 @@
 				13F378BB2A6547B500EE2A0A /* CarouselCustomBackground.swift in Sources */,
 				13F378922A65434700EE2A0A /* Category.swift in Sources */,
 				13F378AB2A65462500EE2A0A /* ActivityTile.swift in Sources */,
-				13F378B52A65470A00EE2A0A /* ActivityReviewList.swift in Sources */,
 				F4E23F572A680C4100F55624 /* AuthenticationView.swift in Sources */,
 				DCB10EB12A65BE80003D1AAD /* UsersListView.swift in Sources */,
 				13F378AF2A6546B900EE2A0A /* Review.swift in Sources */,

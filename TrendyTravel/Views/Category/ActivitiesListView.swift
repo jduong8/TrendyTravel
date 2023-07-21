@@ -18,7 +18,12 @@ struct ActivitiesListView: View {
             } else {
                 ScrollView {
                     ForEach(activityVM.activities, id: \.self) { activity in
-                        CategoryDetailCardView(activity: activity)
+                        NavigationLink {
+                            ActivityDetailsView(selectedActivity: activity)
+                        } label: {
+                            CategoryDetailCardView(activity: activity)
+                        }
+
                     }
                 }
             }
