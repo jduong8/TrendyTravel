@@ -6,23 +6,69 @@
 //
 
 import SwiftUI
-import MessageUI
 
 struct UserDetailsView: View {
     @ObservedObject var vm : UserViewModel
-    @State private var mailData = ComposeMailData(
-        subject: "",
-        recipients: [],
-        message: "",
-        attachments: [])
-    @State var isShowingMailView = false
     @State private var isFollowed = false
     @State private var isLiked = false
     let user: User
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
-                ProfilComponentView(user: user, followersNumber: vm.followers.count)
+                AsyncImage(
+                    url: URL(string: user.profilImage),
+                    content: { image in
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 80)
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.cyan.opacity(0.6), lineWidth: 2)
+                                    .frame(width: 80, height: 80)
+                            )
+                    },
+                    placeholder: {
+                        ProgressView()
+                    })
+                Text("\(user.firstName) \(user.lastName)")
+                    .font(.system(size: 14, weight: .semibold))
+                
+                HStack {
+                    Text("@\(user.pseudo) •")
+                    Image(systemName: "hand.thumbsup.fill")
+                        .font(.system(size: 10, weight: .semibold))
+                    Text("\(user.posts?.count ?? 0)")
+                }
+                .font(.system(size: 12, weight: .regular))
+                
+                Text(user.description)
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundColor(Color(.lightGray))
+                
+                HStack(spacing: 12) {
+                    VStack {
+                        Text("\(user.follower?.count ?? 0)")
+                            .font(.system(size: 13, weight: .semibold))
+                        Text("Followers")
+                            .font(.system(size: 9, weight: .regular))
+                    }
+                    Spacer()
+                        .frame(width: 0.5, height: 12)
+                        .background(Color(.lightGray))
+                    VStack {
+                        Text("\(vm.followers.count)")
+                            .onAppear {
+                                Task {
+                                    vm.followers = try await vm.getFolowerUser(id: user.id)
+                                }
+                            }
+                            .font(.system(size: 13, weight: .semibold))
+                        Text("Following")
+                            .font(.system(size: 9, weight: .regular))
+                    }
+                }
                 HStack(spacing: 12) {
                     Button {
                         isFollowed.toggle()
@@ -47,16 +93,7 @@ struct UserDetailsView: View {
                         .cornerRadius(50)
                     }
                     Button {
-                        self.isShowingMailView.toggle()
-                        mailData = ComposeMailData(
-                            subject: "Contact between \(user.pseudo) and \(vm.user.pseudo) about TrendyTravel App",
-                            recipients: [user.email],
-                            message: "Hi",
-                            attachments: [AttachmentData(
-                                data: "Some text".data(using: .utf8)!,
-                                mimeType: "text/plain",
-                                fileName: "text.txt")
-                            ])
+                        
                     } label: {
                         HStack {
                             Spacer()
@@ -68,19 +105,50 @@ struct UserDetailsView: View {
                         .background(Color(white: 0.9))
                         .cornerRadius(50)
                     }
-                    .disabled(!MailView.canSendMail)
-                    .foregroundColor(MailView.canSendMail ? Color.cyan.opacity(0.5) : .secondary)
-                    .sheet(isPresented: $isShowingMailView) {
-                        MailView(data: $mailData) { result in
-                            print(result)
-                        }
-                    }
                 }
                 .font(.system(size: 12, weight: .semibold))
-                if user.posts != nil {
+                if let posts = user.posts {
                     ForEach(user.posts!, id: \.self) { post in
                         VStack(alignment: .leading) {
-                            PostDescriptionView(user: user, post: post)
+                            AsyncImage(
+                                url: URL(string: post.imageName),
+                                content: { image in
+                                    image.resizable()
+                                        .scaledToFill()
+                                        .clipped()
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                })
+                            HStack(alignment: .top) {
+                                AsyncImage(
+                                    url: URL(string: user.profilImage),
+                                    content: { image in
+                                        image.resizable()
+                                            .scaledToFit()
+                                            .frame(height: 34)
+                                            .clipShape(Circle())
+                                    },
+                                    placeholder: {
+                                        ProgressView()
+                                    })
+                                VStack(alignment: .leading) {
+                                    Text(post.title)
+                                        .font(.system(size: 14, weight: .semibold))
+                                    HStack {
+                                        ForEach(post.hashtags, id: \.self) { hashtag in
+                                            Text("#\(hashtag)")
+                                                .foregroundColor(Color.purple)
+                                                .font(.system(size: 13, weight: .semibold))
+                                                .padding(.horizontal, 12)
+                                                .padding(.vertical, 2)
+                                                .background(Color.purple.opacity(0.2))
+                                                .cornerRadius(20)
+                                        }
+                                    }
+                                }
+                            }
+                            .padding(.horizontal, 8)
                             HStack {
                                 Button {
                                     isLiked.toggle()
