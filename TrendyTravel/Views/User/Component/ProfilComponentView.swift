@@ -44,7 +44,7 @@ struct ProfilComponentView: View {
             .foregroundColor(Color(.lightGray))
         HStack(spacing: 12) {
             VStack {
-                Text("\(user.follower?.count ?? 0)")
+                Text("\(user.followers?.count ?? 0)")
                     .font(.system(size: 13, weight: .semibold))
                 Text("Followers")
                     .font(.system(size: 9, weight: .regular))
