@@ -19,6 +19,7 @@ struct UserDetailsView: View {
     @State private var isFollowed = false
     @State private var isLiked = false
     let user: User
+
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
@@ -120,7 +121,7 @@ struct UserDetailsView: View {
 struct UserDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UserDetailsView(vm: UserViewModel(), user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [], follower: []))
+            UserDetailsView(vm: UserViewModel(), user: User(id: 0, firstName: "john", lastName: "doe", description: "hello I'm new", profilImage: "billy", pseudo: "jo.D", password: "kkk", email: "jo.d@gmail.com", posts: [], followers: []))
         }
     }
 }

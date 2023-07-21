@@ -42,8 +42,8 @@ enum ErrorMessage: Error {
     func getUsers() async throws -> [User] {
         var fetchedUsers: [User] = try await network.fetch(from: baseURLUser)
         fetchedUsers.sort {
-            guard let lhsUsers = $0.follower, let rhsUsers = $1.follower else {
-                return ($0.follower?.count ?? 0) > ($1.follower?.count ?? 0)
+            guard let lhsUsers = $0.followers, let rhsUsers = $1.followers else {
+                return ($0.followers?.count ?? 0) > ($1.followers?.count ?? 0)
             }
             return lhsUsers.count > rhsUsers.count
         }
@@ -56,7 +56,7 @@ enum ErrorMessage: Error {
         return try await network.fetch(from: userURL)
     }
     
-    func getFolowerUser(id: Int) async throws -> [Follower]{
+    func getFolowerUser(id: Int) async throws -> [Follower] {
         let userURL = "https://trendytravel.onrender.com/followers/\(id)"
         followers = try await network.fetch(from: userURL)
         return followers

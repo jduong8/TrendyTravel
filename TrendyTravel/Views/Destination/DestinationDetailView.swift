@@ -66,7 +66,7 @@ struct DestinationDetailView: View {
                 Map(coordinateRegion: $region, annotationItems: isShowingAttractions ? activities : []) { activity in
                     MapAnnotation(coordinate: .init(latitude: activity.latitude, longitude: activity.longitude)) {
                         NavigationLink {
-                            ActivityDetailsView(activity: activity)
+                            ActivityDetailsView(selectedActivity: activity)
                         } label: {
                             CustomMapAnnotation(activity: activity)
                         }
