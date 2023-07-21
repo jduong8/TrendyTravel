@@ -79,7 +79,7 @@ struct ActivityDetailsView: View {
                     isShowingAddReviewSheet = true
                 }
                 .sheet(isPresented: $isShowingAddReviewSheet) {
-                    AddReviewView()
+                    AddReviewView(reviewViewModel: reviewViewModel)
                         .presentationDetents([.medium])
                 }
             

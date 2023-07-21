@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AddReviewView: View {
-    @State private var userRating = 0
-    @State private var comment: String = ""
+    @Environment (\.dismiss) var dismiss
+    @ObservedObject var reviewViewModel: ActivityReviewViewModel
     
     var body: some View {
         VStack (spacing: 25){
@@ -17,35 +17,29 @@ struct AddReviewView: View {
                 .font(.title3)
                 .foregroundColor(.secondary)
             
-            StarRatingButtonView(rating: $userRating)
-            //                Text("Your rating: \(userRating) stars")
+            StarRatingButtonView(rating: $reviewViewModel.review.rating)
             
             TextField(
                 "Add your comment here..",
-                text: $comment
+                text: $reviewViewModel.review.content
             )
             .padding()
             .background(Color.gray.opacity(0.2))
             .cornerRadius(10)
             
-            Button {
-                // TODO: Handle the button action here
-            } label: {
+            Button(action: {
+                Task {
+                    try await reviewViewModel.addCreatedReview(review:reviewViewModel.review)
+                }
+                dismiss()
+            }) {
                 Text("Add a review")
                     .padding(.horizontal)
             }
             .buttonStyle(.borderedProminent)
             .accentColor(.cyan)
-
-
         }
         .padding()
-    }
-}
-
-struct AddReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddReviewView()
     }
 }
 

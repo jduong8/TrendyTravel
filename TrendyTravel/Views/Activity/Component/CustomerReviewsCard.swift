@@ -16,7 +16,7 @@ struct ActivityReviewsView: View {
         LazyVStack(alignment: .leading, spacing: 8) {
             Text("Customer Reviews")
                 .font(.system(size: 16, weight: .bold))
-            ForEach(reviewViewModel.review, id: \.id) { review in
+            ForEach(reviewViewModel.reviews, id: \.id) { review in
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
                         AsyncImage(
