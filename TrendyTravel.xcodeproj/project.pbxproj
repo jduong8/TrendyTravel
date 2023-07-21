@@ -69,6 +69,10 @@
 		F4E23F612A68161F00F55624 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E23F602A68161F00F55624 /* AuthenticationViewModel.swift */; };
 		F4E23F642A68234D00F55624 /* DefaultNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E23F632A68234D00F55624 /* DefaultNavigationLinkView.swift */; };
 		F4E23F672A6824E900F55624 /* AuthenticationType+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E23F662A6824E900F55624 /* AuthenticationType+Style.swift */; };
+		F4F0C1FB2A6A7C2E00CBA9E6 /* DestinationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F378A42A65458100EE2A0A /* DestinationDetailView.swift */; };
+		F4F0C2052A6A885A00CBA9E6 /* ProfilComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0C2022A6A885A00CBA9E6 /* ProfilComponentView.swift */; };
+		F4F0C2062A6A885A00CBA9E6 /* PostDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0C2032A6A885A00CBA9E6 /* PostDescriptionView.swift */; };
+		F4F0C2072A6A885A00CBA9E6 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0C2042A6A885A00CBA9E6 /* MailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +158,9 @@
 		F4E23F602A68161F00F55624 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		F4E23F632A68234D00F55624 /* DefaultNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigationLinkView.swift; sourceTree = "<group>"; };
 		F4E23F662A6824E900F55624 /* AuthenticationType+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationType+Style.swift"; sourceTree = "<group>"; };
+		F4F0C2022A6A885A00CBA9E6 /* ProfilComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilComponentView.swift; sourceTree = "<group>"; };
+		F4F0C2032A6A885A00CBA9E6 /* PostDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDescriptionView.swift; sourceTree = "<group>"; };
+		F4F0C2042A6A885A00CBA9E6 /* MailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +283,9 @@
 		13F378C32A65655200EE2A0A /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				F4F0C2042A6A885A00CBA9E6 /* MailView.swift */,
+				F4F0C2032A6A885A00CBA9E6 /* PostDescriptionView.swift */,
+				F4F0C2022A6A885A00CBA9E6 /* ProfilComponentView.swift */,
 				13F378B62A65473C00EE2A0A /* DiscoverUserView.swift */,
 			);
 			path = Component;
@@ -575,8 +585,10 @@
 			files = (
 				10BD97EA2A6ABB4900106678 /* DestinationDetailView.swift in Sources */,
 				10BD97E92A6ABB3900106678 /* ActivityReviewViewModel.swift in Sources */,
+				F4F0C2062A6A885A00CBA9E6 /* PostDescriptionView.swift in Sources */,
 				13F378B32A6546E700EE2A0A /* ActivityDetailViewModel.swift in Sources */,
 				10FE8B492A680A4700705B9C /* SearchForDestinationView.swift in Sources */,
+				F4F0C2072A6A885A00CBA9E6 /* MailView.swift in Sources */,
 				13F378A32A65455500EE2A0A /* DestinationViewModel.swift in Sources */,
 				F4E23F5E2A68109900F55624 /* AuthenticationButtonStyling.swift in Sources */,
 				10BD97E82A6A7FF400106678 /* ShowAddReview.swift in Sources */,
@@ -607,6 +619,7 @@
 				13ED18D52A669C0B0005CFCE /* CategoryCardHeaderView.swift in Sources */,
 				7539DE7B2A49B4DC0015FA4F /* PopularActivitiesView.swift in Sources */,
 				7539DE502A49948D0015FA4F /* DiscoverDestinationsView.swift in Sources */,
+				F4F0C2052A6A885A00CBA9E6 /* ProfilComponentView.swift in Sources */,
 				13F3789B2A6543F500EE2A0A /* CategoryDetailLoadingView.swift in Sources */,
 				13F378BB2A6547B500EE2A0A /* CarouselCustomBackground.swift in Sources */,
 				13F378922A65434700EE2A0A /* Category.swift in Sources */,
