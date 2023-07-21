@@ -28,4 +28,16 @@ class ActivityViewModel: ObservableObject {
             print(error)
         }
     }
+//    func getPopularActivities() async throws {
+//        do {
+//            let fetchedPopularActivities: [Activity] = try await api.fetch(from: urlString)
+//            DispatchQueue.main.async {
+//                self.activities = fetchedPopularActivities.filter {
+//                    $0.rating >= 3
+//                }
+//            }
+//        } catch {
+//            print(error)
+//        }
+//    }
 }

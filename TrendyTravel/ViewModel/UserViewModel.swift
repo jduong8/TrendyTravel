@@ -56,7 +56,7 @@ enum ErrorMessage: Error {
         return try await network.fetch(from: userURL)
     }
     
-    func getFolowerUser(id: Int) async throws -> [Follower]{
+    func getFolowerUser(id: Int) async throws -> [Follower] {
         let userURL = "https://trendytravel.onrender.com/followers/\(id)"
         return try await network.fetch(from: userURL)
     }
