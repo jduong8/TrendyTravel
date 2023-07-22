@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
 
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var authenticationVM: AuthenticationViewModel
     @State private var isSecured: Bool = true
 
@@ -20,7 +21,7 @@ struct LoginView: View {
             emailField()
             passwordField()
             AuthenticationButtonView(.login) {
-                
+                dismiss()
             }
             .padding(.top)
             DefaultNavigationLinkView(.login) {

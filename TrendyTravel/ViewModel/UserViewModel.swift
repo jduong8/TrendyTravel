@@ -47,6 +47,15 @@ enum ErrorMessage: Error {
             }
             return lhsUsers.count > rhsUsers.count
         }
+        /*
+         guard let lhsActivities = $0.activities, let rhsActivities = $1.activities else {
+             // If either activity list is nil, consider its count as 0
+             return ($0.activities?.count ?? 0) > ($1.activities?.count ?? 0)
+         }
+
+         // Compare the counts
+         return lhsActivities.count > rhsActivities.count
+         */
         self.users = fetchedUsers
         return self.users
     }

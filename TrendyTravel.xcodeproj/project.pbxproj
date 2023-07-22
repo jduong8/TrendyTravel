@@ -73,6 +73,7 @@
 		F4F0C2052A6A885A00CBA9E6 /* ProfilComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0C2022A6A885A00CBA9E6 /* ProfilComponentView.swift */; };
 		F4F0C2062A6A885A00CBA9E6 /* PostDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0C2032A6A885A00CBA9E6 /* PostDescriptionView.swift */; };
 		F4F0C2072A6A885A00CBA9E6 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0C2042A6A885A00CBA9E6 /* MailView.swift */; };
+		F4F0C2092A6A969400CBA9E6 /* AllPopularActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0C2082A6A969400CBA9E6 /* AllPopularActivitiesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		F4F0C2022A6A885A00CBA9E6 /* ProfilComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilComponentView.swift; sourceTree = "<group>"; };
 		F4F0C2032A6A885A00CBA9E6 /* PostDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDescriptionView.swift; sourceTree = "<group>"; };
 		F4F0C2042A6A885A00CBA9E6 /* MailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		F4F0C2082A6A969400CBA9E6 /* AllPopularActivitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPopularActivitiesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 		13F378BF2A65629600EE2A0A /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				F4F0C2082A6A969400CBA9E6 /* AllPopularActivitiesView.swift */,
 				758A0E9D2A4DA6F6008E22FC /* ActivityDetailsView.swift */,
 				10BD97E72A6A7FF400106678 /* ShowAddReview.swift */,
 				108DE06B2A6971980086E3C5 /* AddReviewView.swift */,
@@ -634,6 +637,7 @@
 				DC1CB5622A68253200528701 /* Like.swift in Sources */,
 				7539DE582A4997BD0015FA4F /* ActivitiesListView.swift in Sources */,
 				F4E23F642A68234D00F55624 /* DefaultNavigationLinkView.swift in Sources */,
+				F4F0C2092A6A969400CBA9E6 /* AllPopularActivitiesView.swift in Sources */,
 				13F378AD2A65469400EE2A0A /* RestaurantDetail.swift in Sources */,
 				13F378B92A65479C00EE2A0A /* UserViewModel.swift in Sources */,
 				13F378A92A6545D500EE2A0A /* CustomMapAnnotation.swift in Sources */,

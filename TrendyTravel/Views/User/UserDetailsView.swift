@@ -110,11 +110,11 @@ struct UserDetailsView: View {
                         .cornerRadius(12)
                         .shadow(color: .init(white: 0.8), radius: 5, x: 0, y: 4)
                     }
+                    .padding(.horizontal)
                 }
             }
-            .padding(.horizontal)
+            .navigationBarTitle("\(user.pseudo)",  displayMode: .inline)
         }
-        .navigationBarTitle("\(user.pseudo)",  displayMode: .inline)
     }
 }
 
